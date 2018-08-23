@@ -1,9 +1,11 @@
 package db;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.omg.CORBA.PUBLIC_MEMBER;
+
+import java.util.List;
 
 public class DBHelper {
 
@@ -42,6 +44,24 @@ public class DBHelper {
 		finally {
 			session.close();
 		}
+	}
+
+	public static <T> List<T> findAll(Class classType){
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<T> results = null;
+
+		try {
+			Criteria cr = session.createCriteria(classType);
+			results = cr.list();
+			System.out.println("hello");
+		}
+		catch (HibernateException ex){
+			ex.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		return results;
 	}
 
 
