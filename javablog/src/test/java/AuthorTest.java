@@ -20,5 +20,5 @@ public class AuthorTest {
         instance.setName(name);
         assertEquals(instance.getName(), name);
     }
-    
+
 }
