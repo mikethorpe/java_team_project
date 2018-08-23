@@ -4,6 +4,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -62,6 +63,25 @@ public class DBHelper {
 			session.close();
 		}
 		return results;
+	}
+
+	public static <T> T findById(Class classType, int id){
+		session = HibernateUtil.getSessionFactory().openSession();
+		T result = null;
+
+		try {
+			Criteria cr = session.createCriteria(classType);
+			cr.add(Restrictions.eq("id", id));
+			result = (T)cr.uniqueResult();
+		}
+		catch (HibernateException ex){
+			ex.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+		return result;
+
 	}
 
 
