@@ -2,6 +2,15 @@
 
     <label for="title">Title: </label>
     <input type="text" name="title" id="title" required="true">
+
+    <label for="authorId">Author: </label>
+
+    <select name="authorId" id="authorId" required="true">
+        #foreach($author in $authors)
+        <option value="$author.getId()">$author.getName()</option>
+        #end
+    </select>
+
     <label for="text_content">Text: </label>
     <input type="text" name="text_content" id="text_content" required="true">
 

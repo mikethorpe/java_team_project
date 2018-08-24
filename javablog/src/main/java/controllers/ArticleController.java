@@ -28,6 +28,8 @@ public class ArticleController {
         get("/articles/new", (req, res) -> {
                     Map<String, Object> model = new HashMap<>();
                     model.put("template", "templates/articles/new.vtl");
+                    List<Author> authors = DBHelper.findAll(Author.class);
+                    model.put("authors", authors);
                     return new ModelAndView(model, "templates/layout.vtl");
                 }, velocityTemplateEngine
         );
