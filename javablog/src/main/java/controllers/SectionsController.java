@@ -42,5 +42,13 @@ public class SectionsController {
 			res.redirect("/sections");
 			return null;
 		}, new VelocityTemplateEngine());
+
+		post("/sections/:id", (req, res) -> {
+			int sectionId = Integer.parseInt(req.params(":id"));
+			Section section = DBHelper.findById(Section.class, sectionId);
+			DBHelper.delete(section);
+			res.redirect("/sections");
+			return null;
+		}, new VelocityTemplateEngine());
 	}
 }
