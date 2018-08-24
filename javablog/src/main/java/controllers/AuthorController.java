@@ -47,6 +47,19 @@ public class AuthorController {
 			return null;
 		}, velocityTemplateEngine);
 
+		get("authors/:id", (req, res) -> {
+			String strId = req.params(":id");
+			Integer intId = Integer.parseInt(strId);
+			Author author = DBHelper.findById(Author.class, intId);
+
+			Map<String, Object> model = new HashMap<>();
+
+			model.put("author", author);
+			model.put("template", "templates/authors/show.vtl");
+
+			return new ModelAndView(model, "templates/layout.vtl");
+		}, velocityTemplateEngine);
+
 
 	}
 }
