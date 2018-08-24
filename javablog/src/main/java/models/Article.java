@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "articles")
 public class Article {
 
 	private int id;
@@ -12,6 +16,12 @@ public class Article {
 		this.textContent = textContent;
 	}
 
+	public Article() {
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	public int getId() {
 		return id;
 	}
@@ -20,6 +30,7 @@ public class Article {
 		this.id = id;
 	}
 
+	@Column(name = "title")
 	public String getTitle() {
 		return title;
 	}
@@ -28,6 +39,7 @@ public class Article {
 		this.title = title;
 	}
 
+	@Column(name = "image_link")
 	public String getImageLink() {
 		return imageLink;
 	}
@@ -36,6 +48,7 @@ public class Article {
 		this.imageLink = imageLink;
 	}
 
+	@Column(name = "text_content")
 	public String getTextContent() {
 		return textContent;
 	}

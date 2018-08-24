@@ -1,5 +1,8 @@
 import db.DBHelper;
+import models.Article;
 import models.Author;
+
+import java.util.List;
 
 public class Runner {
 
@@ -9,5 +12,9 @@ public class Runner {
         DBHelper.save(author1);
         Author author2 = new Author("Molly");
         DBHelper.save(author2);
+
+        Article article = new Article("Mike and molly code", "Amazing coding story");
+        DBHelper.save(article);
+
     }
 }
