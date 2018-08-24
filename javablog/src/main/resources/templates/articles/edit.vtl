@@ -1,0 +1,18 @@
+
+<h3>Edit article</h3>
+
+<form action="/articles/$article.getId()/edit" method="post">
+
+    <label for="Title">Title: </label>
+    <input type="text" name="title" id="title" required="true" value="$article.getTitle()">
+
+    <label for="textContent">Text content: </label>
+    <input type="text" name="textContent" id="textContent" required="true" value="$article.getTextContent()">
+
+    <input type="submit" value="Update Article" class="button"/>
+
+</form>
+
+
+
+

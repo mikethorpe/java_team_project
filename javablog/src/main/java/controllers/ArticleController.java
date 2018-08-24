@@ -58,5 +58,28 @@ public class ArticleController {
             res.redirect("/articles");
             return null;
         }, new VelocityTemplateEngine());
+
+
+		get("/articles/:id/edit", (req, res) -> {
+					Map<String, Object> model = new HashMap<>();
+					model.put("template", "templates/articles/edit.vtl");
+					int articleId = Integer.parseInt(req.params(":id"));
+					Article article = DBHelper.findById(Article.class, articleId);
+					model.put("article", article);
+					return new ModelAndView(model, "templates/layout.vtl");
+				}, velocityTemplateEngine
+		);
+
+		post("/articles/:id/edit", (req, res) -> {
+			int articleID = Integer.parseInt(req.params("id"));
+			String title = req.queryParams("title");
+			String textContent = req.queryParams("textContent");
+			Article article= DBHelper.findById(Article.class, articleID);
+			article.setTitle(title);
+			article.setTextContent(textContent);
+			DBHelper.save(article);;
+			res.redirect("/articles");
+			return null;
+		}, velocityTemplateEngine);
     }
 }
