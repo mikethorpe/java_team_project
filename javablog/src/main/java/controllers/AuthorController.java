@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 public class AuthorController {
 
@@ -28,13 +29,24 @@ public class AuthorController {
 		}, velocityTemplateEngine
 		);
 
+
 		get("/authors", (req, res) ->{
 			Map<String, Object> model = new HashMap<>();
 			List<Author> authors = DBHelper.findAll(Author.class);
 			model.put("template", "templates/authors/index.vtl");
 			model.put("authors", authors);
 			return new ModelAndView(model, "templates/layout.vtl");
-		}, velocityTemplateEngine
+			}, velocityTemplateEngine
 		);
+
+		post("/authors", (req, res) -> {
+			String name = req.queryParams("name");
+			Author author = new Author(name);
+			DBHelper.save(author);
+			res.redirect("/authors");
+			return null;
+		}, velocityTemplateEngine);
+
+
 	}
 }
