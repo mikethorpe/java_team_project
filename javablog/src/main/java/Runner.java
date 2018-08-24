@@ -1,6 +1,7 @@
 import db.DBHelper;
 import models.Article;
 import models.Author;
+import models.Section;
 
 import java.util.List;
 
@@ -15,6 +16,9 @@ public class Runner {
 
         Article article = new Article("Mike and molly code", "Amazing coding story");
         DBHelper.save(article);
+
+		Section section = new Section("Technology");
+		DBHelper.save(section);
 
     }
 }

@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "sections")
 public class Section {
 
 	private int id;
@@ -9,6 +13,12 @@ public class Section {
 		this.title = title;
 	}
 
+	public Section() {
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	public int getId() {
 		return id;
 	}
@@ -17,6 +27,7 @@ public class Section {
 		this.id = id;
 	}
 
+	@Column(name = "title")
 	public String getTitle() {
 		return title;
 	}
