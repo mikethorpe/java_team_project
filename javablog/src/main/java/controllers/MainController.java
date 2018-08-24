@@ -10,5 +10,6 @@ public class MainController {
 		Author author = new Author("Molly");
 		DBHelper.save(author);
 		AuthorController authorController = new AuthorController();
+		ArticleController articleController = new ArticleController();
 	}
 }
