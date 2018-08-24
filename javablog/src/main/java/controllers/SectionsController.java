@@ -50,5 +50,14 @@ public class SectionsController {
 			res.redirect("/sections");
 			return null;
 		}, new VelocityTemplateEngine());
+
+		get("/sections/:id/edit", (req,res) ->{
+			Map<String, Object> model = new HashMap<>();
+			model.put("template", "templates/sections/edit.vtl");
+			int sectionId = Integer.parseInt(req.params(":id"));
+ 			Section section = DBHelper.findById(Section.class, sectionId);
+			model.put("section", section);
+			return new ModelAndView(model, "templates/layout.vtl");
+		}, new VelocityTemplateEngine());
 	}
 }
