@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.modelAndView;
 import static spark.Spark.post;
 
 public class AuthorController {
@@ -47,6 +48,25 @@ public class AuthorController {
 			return null;
 		}, velocityTemplateEngine);
 
+		get("/authors/:id/edit", (req, res) -> {
+			Map<String, Object> model = new HashMap<>();
+			model.put("template", "templates/authors/edit.vtl");
+			int authorId = Integer.parseInt(req.params(":id"));
+			Author author = DBHelper.findById(Author.class, authorId);
+			model.put("author", author);
+			return new ModelAndView(model, "templates/layout.vtl");
+		}, velocityTemplateEngine
+		);
+
+		post("/authors/:id/edit", (req, res) -> {
+			int authorId = Integer.parseInt(req.params("id"));
+			String name = req.queryParams("name");
+			Author author = DBHelper.findById(Author.class, authorId);
+			author.setName(name);
+			DBHelper.save(author);;
+			res.redirect("/authors");
+			return null;
+		}, velocityTemplateEngine);
 
 	}
 }

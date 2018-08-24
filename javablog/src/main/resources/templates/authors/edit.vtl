@@ -1,0 +1,15 @@
+
+<h3>Edit author</h3>
+
+<form action="/authors/$author.getId()/edit" method="post">
+
+    <label for="name">Name: </label>
+    <input type="text" name="name" id="name" required="true" value="$author.getName()">
+
+    <input type="submit" value="Update Author" class="button"/>
+
+</form>
+
+
+
+
