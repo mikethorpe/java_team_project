@@ -1,7 +1,13 @@
 <p class="pageHeader">All Authors</p>
 
+
+<form action="/authors/new" method="get">
+    <input type="submit" value="New author" class="button"/>
+</form>
+
+
 #foreach($author in $authors)
 
-<p>$author.getName()</p>
+<p> <a href="/authors/$author.getId()">$author.getName()</a></p>
 
 #end
