@@ -6,6 +6,18 @@
     <label for="Title">Title: </label>
     <input type="text" name="title" id="title" required="true" value="$article.getTitle()">
 
+    <select name="authorId" id="authorId" required="true">
+        #foreach($author in $authors)
+
+        #if($author.getId() == $article.getAuthor().getId() )
+        <option value="$author.getId()" selected>$author.getName()</option>
+        #else
+            <option value="$author.getId()">$author.getName()</option>
+        #end
+
+        #end
+    </select>
+
     <label for="textContent">Text content: </label>
     <input type="text" name="textContent" id="textContent" required="true" value="$article.getTextContent()">
 

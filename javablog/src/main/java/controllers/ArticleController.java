@@ -65,22 +65,26 @@ public class ArticleController {
 
 
 		get("/articles/:id/edit", (req, res) -> {
-					Map<String, Object> model = new HashMap<>();
-					model.put("template", "templates/articles/edit.vtl");
-					int articleId = Integer.parseInt(req.params(":id"));
-					Article article = DBHelper.findById(Article.class, articleId);
-					model.put("article", article);
-					return new ModelAndView(model, "templates/layout.vtl");
-				}, velocityTemplateEngine
-		);
+			Map<String, Object> model = new HashMap<>();
+			model.put("template", "templates/articles/edit.vtl");
+			int articleId = Integer.parseInt(req.params(":id"));
+			Article article = DBHelper.findById(Article.class, articleId);
+			model.put("article", article);
+			List<Author> authors = DBHelper.findAll(Author.class);
+			model.put("authors", authors );
+			return new ModelAndView(model, "templates/layout.vtl");
+		}, velocityTemplateEngine);
 
 		post("/articles/:id/edit", (req, res) -> {
 			int articleID = Integer.parseInt(req.params("id"));
 			String title = req.queryParams("title");
 			String textContent = req.queryParams("textContent");
+			int authorId = Integer.parseInt(req.queryParams("authorId"));
+			Author author = DBHelper.findById(Author.class, authorId);
 			Article article= DBHelper.findById(Article.class, articleID);
 			article.setTitle(title);
 			article.setTextContent(textContent);
+			article.setAuthor(author);
 			DBHelper.save(article);;
 			res.redirect("/articles");
 			return null;
