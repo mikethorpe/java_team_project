@@ -1,7 +1,20 @@
 <p class="pageHeader">All Articles</p>
 
+
+<table>
+    <tr>
+        <th>Title</th>
+    </tr>
 #foreach($article in $articles)
+    <tr>
+        <td>$article.getTitle()</td>
+        <td>
+            <form action="/articles/$article.getId()/delete" method="post">
+                <input type="submit" value="delete" class="button">
+            </form>
 
-<p>$article.getTitle()</p>
-
+        </td>
+    </tr>
 #end
+
+</table>
