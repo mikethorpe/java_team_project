@@ -1,0 +1,7 @@
+<div>
+    <p> Name: $author.getName() </p>
+</div>
+<a href="/authors/$author.getId()/edit" class="button center">Edit</a>
+<form action="/authors/$author.getId()/delete" method="post">
+    <input type="submit" value="delete" class="button">
+</form>
