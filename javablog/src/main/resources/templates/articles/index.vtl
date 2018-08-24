@@ -1,5 +1,8 @@
 <p class="pageHeader">All Articles</p>
 
+<form action="/articles/new" method="get">
+    <input type="submit" value="New Article" class="button">
+</form>
 
 <table>
     <tr>
@@ -12,9 +15,14 @@
             <form action="/articles/$article.getId()/delete" method="post">
                 <input type="submit" value="delete" class="button">
             </form>
-
         </td>
     </tr>
 #end
 
 </table>
+
+<form action="/articles/new" method="get">
+    <input type="submit" value="New Article" class="button">
+</form>
+
+
