@@ -14,7 +14,12 @@
         <tr>
             <td><a href="/sections/$section.getId()">$section.getTitle()</a></td>
             <td>
-                <form action="/sections/$section.getId()" method="post">
+                <form action="/sections/$section.getId()/edit" method="get">
+                    <input type="submit" value="edit" class="button">
+                </form>
+            </td>
+            <td>
+                <form action="/sections/$section.getId()/delete" method="post">
                 <input type="submit" value="delete" class="button">
                 </form>
             </td>

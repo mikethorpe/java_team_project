@@ -43,7 +43,7 @@ public class SectionsController {
 			return null;
 		}, new VelocityTemplateEngine());
 
-		post("/sections/:id", (req, res) -> {
+		post("/sections/:id/delete", (req, res) -> {
 			int sectionId = Integer.parseInt(req.params(":id"));
 			Section section = DBHelper.findById(Section.class, sectionId);
 			DBHelper.delete(section);
@@ -59,5 +59,16 @@ public class SectionsController {
 			model.put("section", section);
 			return new ModelAndView(model, "templates/layout.vtl");
 		}, new VelocityTemplateEngine());
+
+		post("/sections/:id/edit", (req, res) -> {
+			int sectionId = Integer.parseInt(req.params(":id"));
+			String title = req.queryParams("title");
+			Section section = DBHelper.findById(Section.class, sectionId);
+			section.setTitle(title);
+			DBHelper.save(section);
+			res.redirect("/sections");
+			return null;
+		}, new VelocityTemplateEngine());
+
 	}
 }
