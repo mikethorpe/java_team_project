@@ -60,7 +60,7 @@ public class Article {
 	}
 
 	@ManyToOne
-	@JoinColumn( name = "author_id")
+	@JoinColumn( name = "author_id", nullable = false)
 	public Author getAuthor() {
 		return author;
 	}
