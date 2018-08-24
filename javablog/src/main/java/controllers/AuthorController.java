@@ -82,6 +82,13 @@ public class AuthorController {
 			return new ModelAndView(model, "templates/layout.vtl");
 		}, velocityTemplateEngine);
 
+		post ("/authors/:id/delete", (req, res) -> {
+			int id = Integer.parseInt(req.params(":id"));
+			Author authorToDelete = DBHelper.findById(Author.class, id);
+			DBHelper.delete(authorToDelete);
+			res.redirect("/authors");
+			return null;
+		}, new VelocityTemplateEngine());
 
 
 	}
