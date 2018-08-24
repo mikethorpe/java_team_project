@@ -10,10 +10,12 @@ public class Article {
 	private String title;
 	private String imageLink;
 	private String textContent;
+	private Author author;
 
-	public Article(String title, String textContent) {
+	public Article(String title, String textContent, Author author) {
 		this.title = title;
 		this.textContent = textContent;
+		this.author = author;
 	}
 
 	public Article() {
@@ -55,5 +57,15 @@ public class Article {
 
 	public void setTextContent(String textContent) {
 		this.textContent = textContent;
+	}
+
+	@ManyToOne
+	@JoinColumn( name = "author_id")
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 }

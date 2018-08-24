@@ -14,7 +14,7 @@ public class Runner {
         Author author2 = new Author("Molly");
         DBHelper.save(author2);
 
-        Article article = new Article("Mike and molly code", "Amazing coding story");
+        Article article = new Article("Mike and molly code", "Amazing coding story", author1);
         DBHelper.save(article);
 
 		Section section = new Section("Technology");

@@ -44,7 +44,9 @@ public class ArticleController {
         post("/articles", (req, res) -> {
             String title = req.queryParams("title");
             String textContent = req.queryParams("text_content");
-            Article article = new Article(title, textContent);
+            int authorId = Integer.parseInt(req.queryParams("authorId"));
+            Author author = DBHelper.findById(Author.class, authorId);
+            Article article = new Article(title, textContent, author);
             DBHelper.save(article);
             res.redirect("/articles");
             return null;

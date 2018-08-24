@@ -12,7 +12,7 @@ public class MainController {
 		// Seeds
 		Author author = new Author("Molly");
 		DBHelper.save(author);
-		Article article = new Article("Mike and molly write code", "Some content");
+		Article article = new Article("Mike and molly write code", "Some content", author);
 		DBHelper.save(article);
 		Section section = new Section("Technology");
 		DBHelper.save(section);

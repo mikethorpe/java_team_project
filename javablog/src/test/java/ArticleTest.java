@@ -1,4 +1,5 @@
 import models.Article;
+import models.Author;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,9 +8,12 @@ import static junit.framework.Assert.assertEquals;
 public class ArticleTest {
 
 	Article article;
+	Author author;
 	@Before
 	public void before(){
-		article = new Article("Mike and Molly code together", "Some content");
+
+		author = new Author("Molly");
+		article = new Article("Mike and Molly code together", "Some content", author);
 	}
 
 	@Test
@@ -45,6 +49,20 @@ public class ArticleTest {
 	public void canSetTextContent(){
 		article.setTextContent("Different content");
 		assertEquals("Different content", article.getTextContent());
+	}
+
+	@Test
+	public void canGetAuthor(){
+		String authorName = article.getAuthor().getName();
+		assertEquals("Molly", authorName);
+	}
+
+	@Test
+	public void canSetAuthor(){
+		Author mike = new Author("Mike");
+		article.setAuthor(mike);
+		String authorName = article.getAuthor().getName();
+		assertEquals("Mike", authorName);
 	}
 
 
