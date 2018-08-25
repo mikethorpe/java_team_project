@@ -4,6 +4,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -54,6 +55,7 @@ public class DBHelper {
 		try {
 			Criteria cr = session.createCriteria(classType);
 			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+			cr.addOrder(Order.asc("id"));
 			results = cr.list();
 			System.out.println("hello");
 		}
