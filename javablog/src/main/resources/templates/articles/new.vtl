@@ -21,6 +21,13 @@
         #end
     </select>
 
+    <p>
+        #foreach($section in $sections)
+            <label for="$section.getId()_section">$section.getTitle()</label>
+            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
+        #end
+    </p>
+
     <label for="text_content">Text: </label>
     <input type="text" name="text_content" id="text_content" required="true">
 

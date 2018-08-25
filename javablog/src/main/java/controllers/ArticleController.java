@@ -8,9 +8,7 @@ import models.Section;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -47,21 +45,27 @@ public class ArticleController {
                 }, velocityTemplateEngine
         );
 
+
+
+
         post("/articles", (req, res) -> {
 
-        	// Create the article
-        	String title = req.queryParams("title");
-            String textContent = req.queryParams("text_content");
-            int authorId = Integer.parseInt(req.queryParams("authorId"));
+         	// Create the article
+        	String textContent = req.queryParams("text_content");
+			String title = req.queryParams("title");
+			int authorId = Integer.parseInt(req.queryParams("authorId"));
             Author author = DBHelper.findById(Author.class, authorId);
             Article article = new Article(title, textContent, author);
             DBHelper.save(article);
 
             // Add a section if one is selected from the form
-			int sectionId = Integer.parseInt(req.queryParams("sectionId"));
-			if (sectionId != 0){
-				Section section = DBHelper.findById(Section.class, sectionId);
-				DBArticle.addArticleToSection(article, section);
+			List<Section> sections = getSectionsFromForm(req.queryParams());
+			if (sections.size() != 0){
+
+				for(Section section : sections){
+					article.addSectionToArticle(section);
+				}
+				DBHelper.save(article);
 			}
 
             res.redirect("/articles");
@@ -86,6 +90,8 @@ public class ArticleController {
 			model.put("article", article);
 			List<Author> authors = DBHelper.findAll(Author.class);
 			model.put("authors", authors );
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("sections", sections);
 			return new ModelAndView(model, "templates/layout.vtl");
 		}, velocityTemplateEngine);
 
@@ -104,4 +110,37 @@ public class ArticleController {
 			return null;
 		}, velocityTemplateEngine);
     }
+
+
+    private static List<Section> getSectionsFromForm(Set<String> queryParams){
+		List<Integer> sectionIds = getSectionIdsFromQueryParams(queryParams);
+		List<Section> sections = getSectionsFromSectionIds(sectionIds);
+		return sections;
+	}
+
+	private static List<Section> getSectionsFromSectionIds(List<Integer> sectionIds){
+		List<Section> sections = new ArrayList<>();
+
+		for(Integer sectionId : sectionIds){
+			Section section = DBHelper.findById(Section.class, sectionId);
+			sections.add(section);
+		}
+
+		return sections;
+	}
+
+	private static List<Integer> getSectionIdsFromQueryParams(Set<String> queryParams){
+
+		List<Integer> sectionIds = new ArrayList<>();
+
+		for(String param : queryParams){
+			if (param.contains("_section")){
+				String[] parts = param.split("_");
+				int sectionId = Integer.parseInt(parts[0]);
+				sectionIds.add(sectionId);
+			}
+		}
+		return sectionIds;
+	}
+
 }
