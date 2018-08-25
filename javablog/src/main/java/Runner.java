@@ -4,6 +4,7 @@ import models.Article;
 import models.Author;
 import models.Section;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Runner {
@@ -21,7 +22,10 @@ public class Runner {
 		Section section = new Section("Technology");
 		DBHelper.save(section);
 
-		DBArticle.addArticleToSection(article, section);
+		List<Section> sections = new ArrayList<>();
+		sections.add(section);
+
+		DBArticle.updateArticlesSections(article, sections);
 
 		Article foundArticle = DBHelper.findById(Article.class, 1);
 		Section foundSection = DBHelper.findById(Section.class, 1);

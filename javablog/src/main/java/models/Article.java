@@ -104,4 +104,8 @@ public class Article {
 
 		return sectionIds;
 	}
+
+	public void clearArticleSections(){
+		this.sections.clear();
+	}
 }

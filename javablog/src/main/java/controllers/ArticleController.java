@@ -59,7 +59,7 @@ public class ArticleController {
             DBHelper.save(article);
 
             // Add any sections from the form to the article
-			addSectionsFromFormToArticle(req.queryParams(), article);
+			updateArticleSections(req.queryParams(), article);
 
 			res.redirect("/articles");
             return null;
@@ -100,7 +100,7 @@ public class ArticleController {
 			article.setAuthor(author);
 			DBHelper.save(article);
 
-			addSectionsFromFormToArticle(req.queryParams(), article);
+			updateArticleSections(req.queryParams(), article);
 
 			res.redirect("/articles");
 			return null;
@@ -108,14 +108,10 @@ public class ArticleController {
     }
 
 
-    private static void addSectionsFromFormToArticle(Set queryParms, Article article){
+    private static void updateArticleSections(Set queryParms, Article article){
 		// Add a section if one is selected from the form
 		List<Section> sections = getSectionsFromForm(queryParms);
-		if (sections.size() != 0){
-			for(Section section : sections){
-				DBArticle.addArticleToSection(article, section);
-			}
-		}
+		DBArticle.updateArticlesSections(article, sections);
 	}
 
     private static List<Section> getSectionsFromForm(Set<String> queryParams){

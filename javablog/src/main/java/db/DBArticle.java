@@ -2,16 +2,17 @@ package db;
 
 import models.Article;
 import models.Section;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+
+import java.util.List;
 
 public class DBArticle {
 
-	private static Session session;
-	private static Transaction transaction;
+	public static void updateArticlesSections(Article article, List<Section> sections){
+		article.clearArticleSections();
 
-	public static void addArticleToSection(Article article, Section section){
-		article.addSectionToArticle(section);
+		for(Section section : sections) {
+			article.addSectionToArticle(section);
+		}
 		DBHelper.save(article);
 	}
 }
