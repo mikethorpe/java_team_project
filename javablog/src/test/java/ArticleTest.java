@@ -79,5 +79,11 @@ public class ArticleTest {
 		assertEquals("Technology", sections.get(0).getTitle());
 	}
 
+	@Test
+	public void canAddSectionToArticle(){
+		article.addSectionToArticle(section);
+		assertEquals(1, article.getSections().size());
+	}
+
 
 }

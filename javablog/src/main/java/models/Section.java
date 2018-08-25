@@ -1,5 +1,7 @@
 package models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +16,10 @@ public class Section {
 
 	public Section(String title) {
 		this.title = title;
+		this.articles = new ArrayList<>();
 	}
 
 	public Section() {
-		this.articles = new ArrayList<>();
 	}
 
 	@Id
@@ -44,7 +46,18 @@ public class Section {
 		return articles;
 	}
 
+	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+	@ManyToMany
+	@JoinTable(
+		name="articles_sections",
+		joinColumns = { @JoinColumn(name = "sections", nullable = false, updatable = false)},
+		inverseJoinColumns = {@JoinColumn(name = "articles", nullable = false, updatable = false)}
+	)
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
+	}
+
+	public void addArticleToSection(Article article){
+		this.articles.add(article);
 	}
 }

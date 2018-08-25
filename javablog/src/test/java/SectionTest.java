@@ -46,4 +46,10 @@ public class SectionTest {
 		section.setArticles(articles);
 		assertEquals("Mike and Molly write code", section.getArticles().get(0).getTitle());
 	}
+
+	@Test
+	public void canAddArticleToSection(){
+		section.addArticleToSection(article);
+		assertEquals(1, section.getArticles().size());
+	}
 }
