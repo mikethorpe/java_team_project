@@ -93,4 +93,15 @@ public class Article {
 	public void addSectionToArticle(Section section){
 		this.sections.add(section);
 	}
+
+	@Transient
+	public List<Integer> getSectionIds(){
+		List<Integer> sectionIds = new ArrayList<>();
+
+		for(Section section : sections){
+			sectionIds.add(section.getId());
+		}
+
+		return sectionIds;
+	}
 }

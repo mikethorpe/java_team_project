@@ -14,8 +14,12 @@ public class MainController {
 		DBHelper.save(author);
 		Article article = new Article("Mike and molly write code", "Some content", author);
 		DBHelper.save(article);
-		Section section = new Section("Technology");
-		DBHelper.save(section);
+		Section section1 = new Section("Technology");
+		DBHelper.save(section1);
+		Section section2 = new Section("Environment");
+		DBHelper.save(section2);
+		Section section3 = new Section("Art");
+		DBHelper.save(section3);
 
 		// Controllers
 		AuthorController authorController = new AuthorController();
