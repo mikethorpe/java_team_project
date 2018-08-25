@@ -42,17 +42,17 @@ public class Section {
 		this.title = title;
 	}
 
-	public List<Article> getArticles() {
-		return articles;
-	}
-
 	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
 	@ManyToMany
 	@JoinTable(
 		name="articles_sections",
-		joinColumns = { @JoinColumn(name = "sections", nullable = false, updatable = false)},
-		inverseJoinColumns = {@JoinColumn(name = "articles", nullable = false, updatable = false)}
+		joinColumns = { @JoinColumn(name = "section_id", updatable = false)},
+		inverseJoinColumns = {@JoinColumn(name = "article_id", updatable = false)}
 	)
+	public List<Article> getArticles() {
+		return articles;
+	}
+
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
 	}

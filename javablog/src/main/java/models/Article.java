@@ -79,8 +79,8 @@ public class Article {
 	@ManyToMany
 	@JoinTable(
 			name = "articles_sections",
-			joinColumns =  { @JoinColumn(name = "articles", nullable = false, updatable = false)},
-			inverseJoinColumns = { @JoinColumn(name = "sections", nullable = false, updatable = false) }
+			joinColumns =  { @JoinColumn(name = "article_id", updatable = false)},
+			inverseJoinColumns = { @JoinColumn(name = "section_id", updatable = false) }
 	)
 	public List<Section> getSections() {
 		return sections;

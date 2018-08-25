@@ -1,3 +1,4 @@
+import db.DBArticle;
 import db.DBHelper;
 import models.Article;
 import models.Author;
@@ -19,6 +20,8 @@ public class Runner {
 
 		Section section = new Section("Technology");
 		DBHelper.save(section);
+
+		DBArticle.addArticleToSection(article, section);
 
     }
 }
