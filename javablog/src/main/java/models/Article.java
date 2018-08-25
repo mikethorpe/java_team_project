@@ -76,7 +76,7 @@ public class Article {
 	}
 
 	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-	@ManyToMany
+	@ManyToMany( fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "articles_sections",
 			joinColumns =  { @JoinColumn(name = "article_id", updatable = false)},

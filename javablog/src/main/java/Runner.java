@@ -23,5 +23,7 @@ public class Runner {
 
 		DBArticle.addArticleToSection(article, section);
 
+		Article foundArticle = DBHelper.findById(Article.class, 1);
+		Section foundSection = DBHelper.findById(Section.class, 1);
     }
 }

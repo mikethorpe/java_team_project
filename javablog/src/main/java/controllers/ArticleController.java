@@ -48,12 +48,22 @@ public class ArticleController {
         );
 
         post("/articles", (req, res) -> {
-            String title = req.queryParams("title");
+
+        	// Create the article
+        	String title = req.queryParams("title");
             String textContent = req.queryParams("text_content");
             int authorId = Integer.parseInt(req.queryParams("authorId"));
             Author author = DBHelper.findById(Author.class, authorId);
             Article article = new Article(title, textContent, author);
             DBHelper.save(article);
+
+            // Add a section if one is selected from the form
+			int sectionId = Integer.parseInt(req.queryParams("sectionId"));
+			if (sectionId != 0){
+				Section section = DBHelper.findById(Section.class, sectionId);
+				DBArticle.addArticleToSection(article, section);
+			}
+
             res.redirect("/articles");
             return null;
         }, velocityTemplateEngine);

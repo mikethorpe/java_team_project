@@ -11,7 +11,7 @@ public class DBArticle {
 	private static Transaction transaction;
 
 	public static void addArticleToSection(Article article, Section section){
-		section.addArticleToSection(article);
-		DBHelper.save(section);
+		article.addSectionToArticle(section);
+		DBHelper.save(article);
 	}
 }
