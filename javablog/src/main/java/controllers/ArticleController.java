@@ -1,8 +1,10 @@
 package controllers;
 
+import db.DBArticle;
 import db.DBHelper;
 import models.Article;
 import models.Author;
+import models.Section;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -30,6 +32,8 @@ public class ArticleController {
                     model.put("template", "templates/articles/new.vtl");
                     List<Author> authors = DBHelper.findAll(Author.class);
                     model.put("authors", authors);
+                    List<Section> sections = DBHelper.findAll(Section.class);
+                    model.put("sections", sections);
                     return new ModelAndView(model, "templates/layout.vtl");
                 }, velocityTemplateEngine
         );
