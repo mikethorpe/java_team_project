@@ -1,7 +1,11 @@
 import models.Article;
 import models.Author;
+import models.Section;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -9,9 +13,11 @@ public class ArticleTest {
 
 	Article article;
 	Author author;
+	Section section;
+
 	@Before
 	public void before(){
-
+		section = new Section("Technology");
 		author = new Author("Molly");
 		article = new Article("Mike and Molly code together", "Some content", author);
 	}
@@ -63,6 +69,14 @@ public class ArticleTest {
 		article.setAuthor(mike);
 		String authorName = article.getAuthor().getName();
 		assertEquals("Mike", authorName);
+	}
+
+	@Test
+	public void canGetAndSetSections(){
+		List<Section> sections = new ArrayList<>();
+		sections.add(section);
+		article.setSections(sections);
+		assertEquals("Technology", sections.get(0).getTitle());
 	}
 
 

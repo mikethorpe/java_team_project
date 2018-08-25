@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "articles")
@@ -11,11 +13,13 @@ public class Article {
 	private String imageLink;
 	private String textContent;
 	private Author author;
+	private List<Section> sections;
 
 	public Article(String title, String textContent, Author author) {
 		this.title = title;
 		this.textContent = textContent;
 		this.author = author;
+		this.sections = new ArrayList<>();
 	}
 
 	public Article() {
@@ -67,5 +71,14 @@ public class Article {
 
 	public void setAuthor(Author author) {
 		this.author = author;
+	}
+
+
+	public List<Section> getSections() {
+		return sections;
+	}
+
+	public void setSections(List<Section> sections) {
+		this.sections = sections;
 	}
 }
