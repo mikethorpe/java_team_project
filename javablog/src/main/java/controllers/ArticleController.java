@@ -58,14 +58,8 @@ public class ArticleController {
             Article article = new Article(title, textContent, author);
             DBHelper.save(article);
 
-            // Add a section if one is selected from the form
-			List<Section> sections = getSectionsFromForm(req.queryParams());
-			if (sections.size() != 0){
-				for(Section section : sections){
-
-					DBArticle.addArticleToSection(article, section);
-				}
-			}
+            // Add any sections from the form to the article
+			addSectionsFromFormToArticle(req.queryParams(), article);
 
 			res.redirect("/articles");
             return null;
@@ -104,12 +98,25 @@ public class ArticleController {
 			article.setTitle(title);
 			article.setTextContent(textContent);
 			article.setAuthor(author);
-			DBHelper.save(article);;
+			DBHelper.save(article);
+
+			addSectionsFromFormToArticle(req.queryParams(), article);
+
 			res.redirect("/articles");
 			return null;
 		}, velocityTemplateEngine);
     }
 
+
+    private static void addSectionsFromFormToArticle(Set queryParms, Article article){
+		// Add a section if one is selected from the form
+		List<Section> sections = getSectionsFromForm(queryParms);
+		if (sections.size() != 0){
+			for(Section section : sections){
+				DBArticle.addArticleToSection(article, section);
+			}
+		}
+	}
 
     private static List<Section> getSectionsFromForm(Set<String> queryParams){
 		List<Integer> sectionIds = getSectionIdsFromQueryParams(queryParams);
