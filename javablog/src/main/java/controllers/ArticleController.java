@@ -61,14 +61,13 @@ public class ArticleController {
             // Add a section if one is selected from the form
 			List<Section> sections = getSectionsFromForm(req.queryParams());
 			if (sections.size() != 0){
-
 				for(Section section : sections){
-					article.addSectionToArticle(section);
+
+					DBArticle.addArticleToSection(article, section);
 				}
-				DBHelper.save(article);
 			}
 
-            res.redirect("/articles");
+			res.redirect("/articles");
             return null;
         }, velocityTemplateEngine);
 

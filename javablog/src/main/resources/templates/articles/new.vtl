@@ -11,15 +11,6 @@
         #end
     </select>
 
-    <label for="sectionId">Section:</label>
-
-    <select name="sectionId" id="sectionId" required="true">
-        <option value="0">None</option>
-
-        #foreach($section in $sections)
-        <option value="$section.getId()">$section.getTitle()</option>
-        #end
-    </select>
 
     <p>
         #foreach($section in $sections)
