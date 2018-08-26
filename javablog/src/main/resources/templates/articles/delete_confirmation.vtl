@@ -1,0 +1,13 @@
+
+
+
+<p>Are you sure you want to permanently delete this article?</p>
+
+
+<form action="/articles/$article.getId()/delete" method="post">
+    <input type="submit" value="Yes" class="button">
+</form>
+
+<form action="/articles" method="get">
+    <input type="submit" value="No" class="button"/>
+</form>

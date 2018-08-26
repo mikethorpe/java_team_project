@@ -8,6 +8,7 @@ import models.Section;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.*;
 
 import static spark.Spark.get;
@@ -22,31 +23,25 @@ public class ArticleController {
 
     private static void setupEndPoints() {
 
-
-        VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
-
         get("/articles/new", (req, res) -> {
-                    Map<String, Object> model = new HashMap<>();
-                    model.put("template", "templates/articles/new.vtl");
-                    List<Author> authors = DBHelper.findAll(Author.class);
-                    model.put("authors", authors);
-                    List<Section> sections = DBHelper.findAll(Section.class);
-                    model.put("sections", sections);
-                    return new ModelAndView(model, "templates/layout.vtl");
-                }, velocityTemplateEngine
+				Map<String, Object> model = new HashMap<>();
+				model.put("template", "templates/articles/new.vtl");
+				List<Author> authors = DBHelper.findAll(Author.class);
+				model.put("authors", authors);
+				List<Section> sections = DBHelper.findAll(Section.class);
+				model.put("sections", sections);
+				return new ModelAndView(model, "templates/layout.vtl");
+			}, new VelocityTemplateEngine()
         );
 
         get("/articles", (req, res) ->{
-                    Map<String, Object> model = new HashMap<>();
-                    List<Article> articles = DBHelper.findAll(Article.class);
-                    model.put("template", "templates/articles/index.vtl");
-                    model.put("articles", articles);
-                    return new ModelAndView(model, "templates/layout.vtl");
-                }, velocityTemplateEngine
+				Map<String, Object> model = new HashMap<>();
+				List<Article> articles = DBHelper.findAll(Article.class);
+				model.put("template", "templates/articles/index.vtl");
+				model.put("articles", articles);
+				return new ModelAndView(model, "templates/layout.vtl");
+			}, new VelocityTemplateEngine()
         );
-
-
-
 
         post("/articles", (req, res) -> {
 
@@ -63,8 +58,18 @@ public class ArticleController {
 
 			res.redirect("/articles");
             return null;
-        }, velocityTemplateEngine);
+        	}, new VelocityTemplateEngine()
+		);
 
+        get("/articles/:id/confirm_delete_article", (req, res) -> {
+        	Map<String, Object> model = new HashMap<>();
+        	model.put("template", "/templates/articles/delete_confirmation.vtl");
+        	int articleId = Integer.parseInt(req.params("id"));
+        	Article article = DBHelper.findById(Article.class,articleId);
+        	model.put("article", article);
+        	return new ModelAndView(model, "templates/layout.vtl");
+			}, new VelocityTemplateEngine()
+		);
 
         post ("/articles/:id/delete", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
@@ -72,7 +77,8 @@ public class ArticleController {
             DBHelper.delete(article);
             res.redirect("/articles");
             return null;
-        }, new VelocityTemplateEngine());
+        	}, new VelocityTemplateEngine()
+		);
 
 
 		get("/articles/:id/edit", (req, res) -> {
@@ -86,7 +92,8 @@ public class ArticleController {
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("sections", sections);
 			return new ModelAndView(model, "templates/layout.vtl");
-		}, velocityTemplateEngine);
+			}, new VelocityTemplateEngine()
+		);
 
 		post("/articles/:id/edit", (req, res) -> {
 			int articleID = Integer.parseInt(req.params("id"));
@@ -104,7 +111,8 @@ public class ArticleController {
 
 			res.redirect("/articles");
 			return null;
-		}, velocityTemplateEngine);
+			}, new VelocityTemplateEngine()
+		);
     }
 
 
