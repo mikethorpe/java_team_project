@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBArticle {
@@ -25,7 +26,7 @@ public class DBArticle {
 
 	public static List<Article> findAllAuthorsArticles(Author author){
 		session = HibernateUtil.getSessionFactory().openSession();
-		List<Article> results = null;
+		List<Article> results = new ArrayList<>();
 
 		try {
 			Criteria cr = session.createCriteria(Article.class);

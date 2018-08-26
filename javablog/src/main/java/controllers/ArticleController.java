@@ -8,7 +8,6 @@ import models.Section;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.*;
 
 import static spark.Spark.get;

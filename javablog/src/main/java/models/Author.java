@@ -1,6 +1,8 @@
 package models;
 
 
+import db.DBArticle;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -47,5 +49,11 @@ public class Author {
 
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
+	}
+
+	@Transient
+	public List<Article> getAllAuthorsArticles(){
+    	List<Article> articles = DBArticle.findAllAuthorsArticles(this);
+    	return articles;
 	}
 }

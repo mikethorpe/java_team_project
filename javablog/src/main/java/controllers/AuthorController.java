@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
-import static spark.Spark.modelAndView;
 import static spark.Spark.post;
 
 public class AuthorController {

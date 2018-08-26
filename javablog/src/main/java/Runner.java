@@ -27,11 +27,18 @@ public class Runner {
 		DBHelper.save(article3);
 
 
-		Section section = new Section("Technology");
-		DBHelper.save(section);
+		Section section1 = new Section("Technology");
+		DBHelper.save(section1);
+
+		Section section2 = new Section("Art");
+		DBHelper.save(section2);
+
+		Section section3 = new Section("Environment");
+		DBHelper.save(section1);
+
 
 		List<Section> sections = new ArrayList<>();
-		sections.add(section);
+		sections.add(section1);
 
 		DBArticle.updateArticlesSections(article1, sections);
 
