@@ -25,14 +25,14 @@ public class SectionsController {
 			model.put("template", "/templates/sections/index.vtl");
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("sections", sections);
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 
 		}, new VelocityTemplateEngine());
 
 		get("/sections/new", (req, res) -> {
 			Map<String, Object> model = new HashMap<>();
 			model.put("template", "templates/sections/new.vtl");
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, new VelocityTemplateEngine());
 
 		post("/sections", (req, res) -> {
@@ -57,7 +57,7 @@ public class SectionsController {
 			int sectionId = Integer.parseInt(req.params(":id"));
  			Section section = DBHelper.findById(Section.class, sectionId);
 			model.put("section", section);
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, new VelocityTemplateEngine());
 
 		post("/sections/:id/edit", (req, res) -> {

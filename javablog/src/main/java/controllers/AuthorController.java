@@ -25,7 +25,7 @@ public class AuthorController {
 		get("/authors/new", (req, res) ->{
 			Map<String, Object> model = new HashMap<>();
 			model.put("template", "templates/authors/new.vtl");
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine
 		);
 
@@ -35,7 +35,7 @@ public class AuthorController {
 			List<Author> authors = DBHelper.findAll(Author.class);
 			model.put("template", "templates/authors/index.vtl");
 			model.put("authors", authors);
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, velocityTemplateEngine
 		);
 
@@ -54,7 +54,7 @@ public class AuthorController {
 			int authorId = Integer.parseInt(req.params(":id"));
 			Author author = DBHelper.findById(Author.class, authorId);
 			model.put("author", author);
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine
 		);
 
@@ -78,7 +78,7 @@ public class AuthorController {
 			model.put("author", author);
 			model.put("template", "templates/authors/show.vtl");
 
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine);
 
 		post ("/authors/:id/delete", (req, res) -> {
