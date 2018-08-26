@@ -3,6 +3,8 @@
 
 <form action="/articles/$article.getId()/edit" method="post">
 
+    <p>Last updated: $article.getLastUpdated()</p>
+
     <label for="Title">Title: </label>
     <input type="text" name="title" id="title" required="true" value="$article.getTitle()">
 
