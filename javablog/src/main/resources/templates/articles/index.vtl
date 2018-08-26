@@ -6,22 +6,39 @@
 
 <table>
     <tr>
-        <th>Title</th>
+        <th>Title:</th>
+        <th>Sections posted in:</th>
+        <th>Author:</th>
     </tr>
 
     #foreach($article in $articles)
     <tr>
         <td>$article.getTitle()</td>
+
+        <td>
+            <ul>
+                #foreach($section in $article.getSections())
+                    <li>$section.getTitle()</li>
+                #end
+            </ul>
+        </td>
+
+        <td>
+            $article.getAuthor().getName()
+        </td>
+
         <td>
             <form action="/articles/$article.getId()/edit" method="get">
                 <input type="submit" value="Edit" class="button">
             </form>
         </td>
+
         <td>
             <form action="/articles/$article.getId()/delete" method="post">
                 <input type="submit" value="delete" class="button">
             </form>
         </td>
+
     </tr>
 #end
 
