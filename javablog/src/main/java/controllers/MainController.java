@@ -27,12 +27,15 @@ public class MainController {
 		DBHelper.save(author2);
 
 		Article article1 = new Article("Article1 title", "Article 1 content", author1);
+		article1.updateArticleDate();
 		DBHelper.save(article1);
 
 		Article article2 = new Article("Article2 title", "Article 2 content", author2);
+		article2.updateArticleDate();
 		DBHelper.save(article2);
 
 		Article article3 = new Article("Article3 title", "Article 3 content", author2);
+		article3.updateArticleDate();
 		DBHelper.save(article3);
 
 

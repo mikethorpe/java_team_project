@@ -50,6 +50,7 @@ public class ArticleController {
 			int authorId = Integer.parseInt(req.queryParams("authorId"));
             Author author = DBHelper.findById(Author.class, authorId);
             Article article = new Article(title, textContent, author);
+            article.updateArticleDate();
             DBHelper.save(article);
 
             // Add any sections from the form to the article
@@ -104,6 +105,7 @@ public class ArticleController {
 			article.setTitle(title);
 			article.setTextContent(textContent);
 			article.setAuthor(author);
+			article.updateArticleDate();
 			DBHelper.save(article);
 
 			updateArticleSections(req.queryParams(), article);

@@ -1,10 +1,11 @@
 package models;
 
-import db.DBArticle;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,7 @@ public class Article {
 	private String textContent;
 	private Author author;
 	private List<Section> sections;
+	private String lastUpdated;
 
 	public Article(String title, String textContent, Author author) {
 		this.title = title;
@@ -93,6 +95,21 @@ public class Article {
 
 	public void addSectionToArticle(Section section){
 		this.sections.add(section);
+	}
+
+	@Column(name = "last_updated")
+	public String getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(String lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+	public void updateArticleDate(){
+		Date currentDateTime = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMMM d, yyyy");
+		this.lastUpdated = sdf.format(currentDateTime);
 	}
 
 	@Transient
