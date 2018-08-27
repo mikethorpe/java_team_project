@@ -20,6 +20,8 @@ public class ArticleController {
         setupEndPoints();
     }
 
+
+
     private static void setupEndPoints() {
 
         get("/articles/new", (req, res) -> {
@@ -60,6 +62,19 @@ public class ArticleController {
             return null;
         	}, new VelocityTemplateEngine()
 		);
+
+		get("articles/:id", (req, res) -> {
+			String strId = req.params(":id");
+			Integer intId = Integer.parseInt(strId);
+			Article article = DBHelper.findById(Article.class, intId);
+
+			Map<String, Object> model = new HashMap<>();
+
+			model.put("article", article);
+			model.put("template", "templates/articles/show.vtl");
+
+			return new ModelAndView(model, "templates/layout.vtl");
+		}, new VelocityTemplateEngine());
 
         get("/articles/:id/confirm_delete_article", (req, res) -> {
         	Map<String, Object> model = new HashMap<>();
