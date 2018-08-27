@@ -52,6 +52,7 @@ public class DBArticle {
 			cr.createAlias("sections", "section");
 			cr.add(Restrictions.eq("section.id", section.getId()));
 			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+			cr.addOrder(Order.desc("lastUpdated"));
 			results = cr.list();
 		} catch (HibernateException ex) {
 			ex.printStackTrace();

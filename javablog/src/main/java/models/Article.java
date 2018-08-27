@@ -3,7 +3,6 @@ package models;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +17,7 @@ public class Article {
 	private String textContent;
 	private Author author;
 	private List<Section> sections;
-	private String lastUpdated;
+	private Date lastUpdated;
 	private int numberOfViews;
 
 	public Article(String title, String textContent, Author author) {
@@ -99,19 +98,19 @@ public class Article {
 		this.sections.add(section);
 	}
 
+	@Temporal(TemporalType.DATE)
 	@Column(name = "last_updated")
-	public String getLastUpdated() {
+	public Date getLastUpdated() {
 		return lastUpdated;
 	}
 
-	public void setLastUpdated(String lastUpdated) {
+	public void setLastUpdated(Date lastUpdated) {
 		this.lastUpdated = lastUpdated;
 	}
 
 	public void updateArticleDate(){
 		Date currentDateTime = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMMM d, yyyy");
-		this.lastUpdated = sdf.format(currentDateTime);
+		this.lastUpdated = currentDateTime;
 	}
 
 	@Transient
