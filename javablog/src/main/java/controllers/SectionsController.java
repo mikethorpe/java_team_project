@@ -1,5 +1,6 @@
 package controllers;
 
+import db.DBArticle;
 import db.DBHelper;
 import models.Article;
 import models.Section;
@@ -48,10 +49,12 @@ public class SectionsController {
 			String strId = req.params(":id");
 			Integer intId = Integer.parseInt(strId);
 			Section section = DBHelper.findById(Section.class, intId);
+			List<Article> articles = DBArticle.findAllArticlesInSection(section);
 
 			Map<String, Object> model = new HashMap<>();
 
 			model.put("section", section);
+			model.put("articles", articles);
 			model.put("template", "templates/sections/show.vtl");
 
 			return new ModelAndView(model, "templates/frontend_layout.vtl");
