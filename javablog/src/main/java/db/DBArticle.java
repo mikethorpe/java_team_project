@@ -44,9 +44,9 @@ public class DBArticle {
 		return results;
 	}
 
-	public static List<Article> findAllArticlesInSectionOrderByViews(Section section){
+	public static List<Article> findAllArticlesInSectionOrderByViews(Section section, int numberOfResults){
 		session = HibernateUtil.getSessionFactory().openSession();
-		List<Article> results = new ArrayList<>();
+		List<Article> listOfArticles = new ArrayList<>();
 
 		try {
 			Criteria cr = session.createCriteria(Article.class);
@@ -54,7 +54,7 @@ public class DBArticle {
 			cr.add(Restrictions.eq("section.id", section.getId()));
 			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 			cr.addOrder(Order.desc("numberOfViews"));
-			results = cr.list();
+			listOfArticles = cr.list();
 		}
 		catch (HibernateException ex){
 			ex.printStackTrace();
@@ -62,6 +62,12 @@ public class DBArticle {
 		finally {
 			session.close();
 		}
+
+		// Ensure we don't try to get more articles back than exist in the query
+		if (numberOfResults > listOfArticles.size())
+			numberOfResults = listOfArticles.size();
+
+		List<Article> results = listOfArticles.subList(0, numberOfResults);
 		return results;
 	}
 

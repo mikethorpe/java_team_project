@@ -66,7 +66,7 @@ public class Runner {
 		DBArticle.updateArticlesSections(article2, techSections);
 		DBArticle.updateArticlesSections(article3, artSections);
 
-		List<Article> articlesInSectionOrderedByViews = DBArticle.findAllArticlesInSectionOrderByViews(techSections.get(0));
+		List<Article> articlesInSectionOrderedByViews = DBArticle.findAllArticlesInSectionOrderByViews(techSections.get(0), 4);
 
 		Article foundArticle = DBHelper.findById(Article.class, 1);
 		Section foundSection = DBHelper.findById(Section.class, 1);
