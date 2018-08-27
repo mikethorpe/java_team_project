@@ -44,4 +44,21 @@ public class DBArticle {
 		return results;
 	}
 
+	public static List<Article> findAllArticlesInSection(Section section){
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Article> results = null;
+		try{
+			Criteria cr = session.createCriteria(Article.class);
+			cr.createAlias("sections", "section");
+			cr.add(Restrictions.eq("section.id", section.getId()));
+			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+			results = cr.list();
+		}catch (HibernateException ex){
+			ex.printStackTrace();
+		}finally {
+			session.close();
+		}
+		return results;
+	}
+
 }
