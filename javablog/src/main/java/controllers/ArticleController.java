@@ -63,20 +63,6 @@ public class ArticleController {
         	}, new VelocityTemplateEngine()
 		);
 
-		get("articles/:id", (req, res) -> {
-			String strId = req.params(":id");
-			Integer intId = Integer.parseInt(strId);
-			Article article = DBHelper.findById(Article.class, intId);
-			article.addView();
-			DBHelper.save(article);
-
-			Map<String, Object> model = new HashMap<>();
-
-			model.put("article", article);
-			model.put("template", "templates/articles/show.vtl");
-
-			return new ModelAndView(model, "templates/frontend_layout.vtl");
-		}, new VelocityTemplateEngine());
 
         get("/articles/:id/confirm_delete_article", (req, res) -> {
         	Map<String, Object> model = new HashMap<>();
@@ -131,8 +117,49 @@ public class ArticleController {
 			return null;
 			}, new VelocityTemplateEngine()
 		);
+
+		get("articles/:sectionid/:id", (req, res) -> {
+			Map<String, String> params = req.params();
+			Article article = getArticleFromParams(params);
+			article.addView();
+			DBHelper.save(article);
+
+			Section section = getSectionFromParams(params);
+
+			Map<String, Object> model = new HashMap<>();
+			model.put("template", "templates/articles/show.vtl");
+			model.put("article", article);
+			model.put("section", section);
+
+			return new ModelAndView(model, "templates/frontend_layout.vtl");
+		}, new VelocityTemplateEngine());
+
+		get("articles/:id", (req, res) -> {
+			Map<String, String> params = req.params();
+			Article article = getArticleFromParams(params);
+
+			Map<String, Object> model = new HashMap<>();
+			model.put("template", "templates/articles/show.vtl");
+			model.put("article", article);
+
+			return new ModelAndView(model, "templates/frontend_layout.vtl");
+		}, new VelocityTemplateEngine());
     }
 
+    private static Section getSectionFromParams(Map<String, String> params){
+		String strSectionId = params.get(":sectionid");
+		Integer sectionId = Integer.parseInt(strSectionId);
+		Section section = DBHelper.findById(Section.class, sectionId);
+		return section;
+	}
+
+	private static Article getArticleFromParams(Map<String, String> params){
+		String strId = params.get(":id");
+		Integer intId = Integer.parseInt(strId);
+		Article article = DBHelper.findById(Article.class, intId);
+    	return article;
+
+	}
 
     private static void updateArticleSections(Set queryParms, Article article){
 		// Add a section if one is selected from the form
