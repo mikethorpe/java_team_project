@@ -1,12 +1,10 @@
-<div>
-    <p> Name: $author.getName() </p>
-</div>
+<h2> Author: $author.getName() </h2>
 
 <form action="/authors/$author.getId()/edit" method="get">
     <input type="submit" value="edit" class="button">
 </form>
 
-#if($author.getAllAuthorsArticles().size() == 0 )
+#if( $author.getAllAuthorsArticles().size() == 0 )
     <form action="/authors/$author.getId()/delete" method="post">
         <input type="submit" value="delete" class="button">
     </form>

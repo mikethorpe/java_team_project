@@ -1,3 +1,5 @@
+<h2>Create Article:</h2>
+
 <form action="/articles" method="post">
 
     <label for="title">Title: </label>
@@ -11,17 +13,15 @@
         #end
     </select>
 
-
-    <p>
-        #foreach($section in $sections)
-            <label for="$section.getId()_section">$section.getTitle()</label>
-            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
-        #end
-    </p>
+    <p>Select sections to post in:</p>
+    #foreach($section in $sections)
+        <label for="$section.getId()_section">$section.getTitle()</label>
+        <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
+    #end
 
     <label for="text_content">Text: </label>
     <input type="text" name="text_content" id="text_content" required="true">
 
-    <input type="submit" value="Save" class="button"/>
+    <input type="submit" value="Create Article" class="button"/>
 
 </form>

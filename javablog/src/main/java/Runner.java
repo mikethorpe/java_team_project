@@ -29,6 +29,10 @@ public class Runner {
 		article3.updateArticleDate();
 		DBHelper.save(article3);
 
+		article1.addView();
+		DBHelper.save(article1);
+
+		Article articleWithView = DBHelper.findById(Article.class, article1.getId());
 
 		Section section1 = new Section("Technology");
 		DBHelper.save(section1);

@@ -1,14 +1,15 @@
-<p class="pageHeader">All Articles</p>
+<h2>All Articles:</h2>
 
 <form action="/articles/new" method="get">
     <input type="submit" value="New Article" class="button">
 </form>
 
 <table>
+
     <tr>
         <th>Last updated:</th>
         <th>Title:</th>
-        <th>Sections posted in:</th>
+        <th>Posted in sections:</th>
         <th>Author:</th>
     </tr>
 
@@ -16,6 +17,7 @@
     <tr>
 
         <td>$article.getLastUpdated()</td>
+
         <td>$article.getTitle()</td>
 
         <td>

@@ -1,37 +1,33 @@
+<h2>Edit Article:</h2>
 
-<h3>Edit article</h3>
+<p>Last updated: $article.getLastUpdated()<p>
 
 <form action="/articles/$article.getId()/edit" method="post">
-
-    <p>Last updated: $article.getLastUpdated()</p>
 
     <label for="Title">Title: </label>
     <input type="text" name="title" id="title" required="true" value="$article.getTitle()">
 
     <select name="authorId" id="authorId" required="true">
         #foreach($author in $authors)
-
-        #if($author.getId() == $article.getAuthor().getId() )
-        <option value="$author.getId()" selected>$author.getName()</option>
-        #else
-            <option value="$author.getId()">$author.getName()</option>
-        #end
-
+            #if($author.getId() == $article.getAuthor().getId() )
+                <option value="$author.getId()" selected>$author.getName()</option>
+            #else
+                <option value="$author.getId()">$author.getName()</option>
+            #end
         #end
     </select>
 
-    <p>
-        #foreach($section in $sections)
-            <label for="$section.getId()_section">$section.getTitle()</label>
+    <p>Select sections to post in:</p>
 
-            #if($article.getSectionIds().contains($section.getId()))
-                <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section" checked>
-            #else
-                <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
-            #end
+    #foreach($section in $sections)
+        <label for="$section.getId()_section">$section.getTitle()</label>
+
+        #if($article.getSectionIds().contains($section.getId()))
+            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section" checked>
+        #else
+            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
         #end
-    </p>
-
+    #end
 
     <label for="textContent">Text content: </label>
     <input type="text" name="textContent" id="textContent" required="true" value="$article.getTextContent()">

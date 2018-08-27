@@ -1,28 +1,35 @@
-
-<h2>All Sections</h2>
+<h2>All Sections:</h2>
 
 <form action="/sections/new" method="get">
     <input type="submit" value="New Section" class="button"/>
 </form>
 
 <table>
+
     <tr>
-        <th>Title</th>
+        <th>Title:</th>
     </tr>
 
     #foreach($section in $sections)
         <tr>
-            <td><a href="/sections/$section.getId()">$section.getTitle()</a></td>
+
+            <td>
+                <a href="/sections/$section.getId()">$section.getTitle()</a>
+            </td>
+
             <td>
                 <form action="/sections/$section.getId()/edit" method="get">
-                    <input type="submit" value="edit" class="button">
+                    <input type="submit" value="Edit" class="button">
                 </form>
             </td>
+
             <td>
                 <form action="/sections/$section.getId()/delete" method="post">
-                <input type="submit" value="delete" class="button">
+                    <input type="submit" value="Delete" class="button">
                 </form>
             </td>
+
         </tr>
     #end
+
 </table>

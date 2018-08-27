@@ -19,12 +19,14 @@ public class Article {
 	private Author author;
 	private List<Section> sections;
 	private String lastUpdated;
+	private int numberOfViews;
 
 	public Article(String title, String textContent, Author author) {
 		this.title = title;
 		this.textContent = textContent;
 		this.author = author;
 		this.sections = new ArrayList<>();
+		this.numberOfViews = 0;
 	}
 
 	public Article() {
@@ -125,5 +127,18 @@ public class Article {
 
 	public void clearArticleSections(){
 		this.sections.clear();
+	}
+
+	@Column(name = "number_of_views")
+	public int getNumberOfViews() {
+		return numberOfViews;
+	}
+
+	public void setNumberOfViews(int numberOfViews) {
+		this.numberOfViews = numberOfViews;
+	}
+
+	public void addView(){
+		this.numberOfViews++;
 	}
 }

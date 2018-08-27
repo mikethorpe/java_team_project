@@ -7,25 +7,20 @@
         <title>My Blog</title>
     </head>
 
+    <header>
+        <h1>Blog</h1>
+    </header>
+
     <nav>
-        <ul>
-            <li>
-                <a href="/authors"> All Authors </a>
-            </li>
-            <li>
-                <a href="/articles"> All articles </a>
-            </li>
-            <li>
-                <a href="/sections"> All sections</a>
-            </li>
-        </ul>
+        <a href="/authors"> All Authors </a> |
+        <a href="/articles"> All Articles </a> |
+        <a href="/sections"> All Sections</a>
     </nav>
 
     <body>
-        <h1>Blog</h1>
         <main class="container">
             #parse( $template )
         </main>
-
     </body>
+
 </html>
