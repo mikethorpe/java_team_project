@@ -50,12 +50,13 @@ public class SectionsController {
 			Integer intId = Integer.parseInt(strId);
 			Section section = DBHelper.findById(Section.class, intId);
 			List<Article> articles = DBArticle.findAllArticlesInSection(section);
-
 			Map<String, Object> model = new HashMap<>();
-
+			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("section", section);
+			model.put("navsections", sections);
 			model.put("articles", articles);
 			model.put("template", "templates/sections/show.vtl");
+			model.put("section_nav", "templates/sections/navbar.vtl");
 
 			return new ModelAndView(model, "templates/frontend_layout.vtl");
 		}, new VelocityTemplateEngine());

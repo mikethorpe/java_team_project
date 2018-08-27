@@ -123,13 +123,15 @@ public class ArticleController {
 			Article article = getArticleFromParams(params);
 			article.addView();
 			DBHelper.save(article);
-
+			List<Section> sections = DBHelper.findAll(Section.class);
 			Section section = getSectionFromParams(params);
 
 			Map<String, Object> model = new HashMap<>();
+			model.put("navsections", sections);
 			model.put("template", "templates/articles/show.vtl");
 			model.put("article", article);
 			model.put("section", section);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 
 			return new ModelAndView(model, "templates/frontend_layout.vtl");
 		}, new VelocityTemplateEngine());
@@ -137,10 +139,14 @@ public class ArticleController {
 		get("articles/:id", (req, res) -> {
 			Map<String, String> params = req.params();
 			Article article = getArticleFromParams(params);
+			List<Section> sections = DBHelper.findAll(Section.class);
 
 			Map<String, Object> model = new HashMap<>();
+			model.put("navsections", sections);
 			model.put("template", "templates/articles/show.vtl");
 			model.put("article", article);
+			model.put("section_nav", "templates/sections/navbar.vtl");
+
 
 			return new ModelAndView(model, "templates/frontend_layout.vtl");
 		}, new VelocityTemplateEngine());
