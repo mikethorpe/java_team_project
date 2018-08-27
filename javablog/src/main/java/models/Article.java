@@ -26,6 +26,7 @@ public class Article {
 		this.author = author;
 		this.sections = new ArrayList<>();
 		this.numberOfViews = 0;
+		this.imageLink = "";
 	}
 
 	public Article() {

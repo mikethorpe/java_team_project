@@ -49,9 +49,11 @@ public class ArticleController {
          	// Create the article
         	String textContent = req.queryParams("text_content");
 			String title = req.queryParams("title");
+			String imageLink = req.queryParams("image_link");
 			int authorId = Integer.parseInt(req.queryParams("authorId"));
             Author author = DBHelper.findById(Author.class, authorId);
             Article article = new Article(title, textContent, author);
+            article.setImageLink(imageLink);
             article.updateArticleDate();
             DBHelper.save(article);
 
@@ -102,9 +104,11 @@ public class ArticleController {
 			int articleID = Integer.parseInt(req.params("id"));
 			String title = req.queryParams("title");
 			String textContent = req.queryParams("textContent");
+			String imageLink = req.queryParams("image_link");
 			int authorId = Integer.parseInt(req.queryParams("authorId"));
 			Author author = DBHelper.findById(Author.class, authorId);
 			Article article= DBHelper.findById(Article.class, articleID);
+			article.setImageLink(imageLink);
 			article.setTitle(title);
 			article.setTextContent(textContent);
 			article.setAuthor(author);
