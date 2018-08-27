@@ -57,7 +57,6 @@ public class DBHelper {
 			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 			cr.addOrder(Order.asc("id"));
 			results = cr.list();
-			System.out.println("hello");
 		}
 		catch (HibernateException ex){
 			ex.printStackTrace();
