@@ -6,3 +6,25 @@
 <p>$article.getLastUpdated()</p>
 <p>$article.getAuthor().getName()</p>
 #end
+
+
+<p>Most viewed articles in section:</p>
+<table>
+
+    <tr>
+        <th>Title:</th>
+        <th>Last updated:</th>
+        <th>Author:</th>
+        <th>Views:</th>
+    </tr>
+
+    #foreach($mostViewedArticle in $mostViewedArticles)
+        <tr>
+            <td>$mostViewedArticle.getTitle()</td>
+            <td>$mostViewedArticle.getLastUpdated()</td>
+            <td>$mostViewedArticle.getAuthor().getName()</td>
+            <td>$mostViewedArticle.getNumberOfViews()</td>
+        </tr>
+    #end
+
+</table>

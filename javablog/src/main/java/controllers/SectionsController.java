@@ -52,6 +52,8 @@ public class SectionsController {
 			List<Article> articles = DBArticle.findAllArticlesInSection(section);
 			Map<String, Object> model = new HashMap<>();
 			List<Section> sections = DBHelper.findAll(Section.class);
+			List<Article> mostViewedArticles = DBArticle.findAllArticlesInSectionOrderByViews(section, 5);
+			model.put("mostViewedArticles", mostViewedArticles);
 			model.put("section", section);
 			model.put("navsections", sections);
 			model.put("articles", articles);
