@@ -67,6 +67,8 @@ public class ArticleController {
 			String strId = req.params(":id");
 			Integer intId = Integer.parseInt(strId);
 			Article article = DBHelper.findById(Article.class, intId);
+			article.addView();
+			DBHelper.save(article);
 
 			Map<String, Object> model = new HashMap<>();
 
