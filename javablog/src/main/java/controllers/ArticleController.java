@@ -73,7 +73,7 @@ public class ArticleController {
 			model.put("article", article);
 			model.put("template", "templates/articles/show.vtl");
 
-			return new ModelAndView(model, "templates/layout.vtl");
+			return new ModelAndView(model, "templates/frontend_layout.vtl");
 		}, new VelocityTemplateEngine());
 
         get("/articles/:id/confirm_delete_article", (req, res) -> {
