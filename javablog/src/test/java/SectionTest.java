@@ -43,7 +43,7 @@ public class SectionTest {
 	public void canGetAndSetArticles(){
 		List<Article> articles = new ArrayList<>();
 		articles.add(article);
-		section.setArticles(articles);
+		section.setArticlesSections(articles);
 		assertEquals("Mike and Molly write code", section.getArticles().get(0).getTitle());
 	}
 

@@ -16,7 +16,7 @@ public class Article {
 	private String imageLink;
 	private String textContent;
 	private Author author;
-	private List<Section> sections;
+	private List<ArticleSection> articleSections;
 	private Date lastUpdated;
 	private int numberOfViews;
 
@@ -24,7 +24,7 @@ public class Article {
 		this.title = title;
 		this.textContent = textContent;
 		this.author = author;
-		this.sections = new ArrayList<>();
+		this.articleSections = new ArrayList<>();
 		this.numberOfViews = 0;
 		this.imageLink = "";
 	}
@@ -80,24 +80,18 @@ public class Article {
 		this.author = author;
 	}
 
-	@Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-	@ManyToMany( fetch = FetchType.EAGER)
-	@JoinTable(
-			name = "articles_sections",
-			joinColumns =  { @JoinColumn(name = "article_id", updatable = false)},
-			inverseJoinColumns = { @JoinColumn(name = "section_id", updatable = false) }
-	)
-	public List<Section> getSections() {
-		return sections;
+	@OneToMany( mappedBy = "section")
+	public List<ArticleSection> getArticleSections() {
+		return articleSections;
 	}
 
-	public void setSections(List<Section> sections) {
-		this.sections = sections;
+	public void setArticleSections(List<ArticleSection> sections) {
+		this.articleSections = sections;
 	}
 
-	public void addSectionToArticle(Section section){
-		this.sections.add(section);
-	}
+//	public void addSectionToArticle(Section section){
+//		this.articleSections.add(section);
+//	}
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "last_updated")
@@ -114,19 +108,19 @@ public class Article {
 		this.lastUpdated = currentDateTime;
 	}
 
-	@Transient
-	public List<Integer> getSectionIds(){
-		List<Integer> sectionIds = new ArrayList<>();
-
-		for(Section section : sections){
-			sectionIds.add(section.getId());
-		}
-
-		return sectionIds;
-	}
+//	@Transient
+//	public List<Integer> getSectionIds(){
+//		List<Integer> sectionIds = new ArrayList<>();
+//
+//		for(Section section : sections){
+//			sectionIds.add(section.getId());
+//		}
+//
+//		return sectionIds;
+//	}
 
 	public void clearArticleSections(){
-		this.sections.clear();
+		this.articleSections.clear();
 	}
 
 	@Column(name = "number_of_views")
