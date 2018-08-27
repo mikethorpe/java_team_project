@@ -1,7 +1,8 @@
 <h2>$section.getTitle()</h2>
 
+
 #foreach($article in $articles)
-<p>$article.getTitle()</p>
+    <p><a href="/articles/$article.getId()">$article.getTitle()</a></p>
 <p>$article.getLastUpdated()</p>
 <p>$article.getAuthor().getName()</p>
 #end
