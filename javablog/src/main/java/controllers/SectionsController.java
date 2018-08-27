@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBHelper;
+import models.Article;
 import models.Section;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -41,6 +42,19 @@ public class SectionsController {
 			DBHelper.save(section);
 			res.redirect("/sections");
 			return null;
+		}, new VelocityTemplateEngine());
+
+		get("sections/:id", (req, res) -> {
+			String strId = req.params(":id");
+			Integer intId = Integer.parseInt(strId);
+			Section section = DBHelper.findById(Section.class, intId);
+
+			Map<String, Object> model = new HashMap<>();
+
+			model.put("section", section);
+			model.put("template", "templates/sections/show.vtl");
+
+			return new ModelAndView(model, "templates/frontend_layout.vtl");
 		}, new VelocityTemplateEngine());
 
 		post("/sections/:id/delete", (req, res) -> {
