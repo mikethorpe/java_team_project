@@ -11,9 +11,7 @@ public class Runner {
 
 	public static void main(String[] args) {
 
-
-
-		// Set up sections
+    	// Set up sections
 		Section section1 = new Section("Technology");
 		DBHelper.save(section1);
 
@@ -23,9 +21,12 @@ public class Runner {
 		Section section3 = new Section("Environment");
 		DBHelper.save(section1);
 
-		List<Section> sections = new ArrayList<>();
-		sections.add(section1);
 
+		List<Section> techSections = new ArrayList<>();
+		techSections.add(section1);
+
+		List<Section> artSections = new ArrayList<>();
+		artSections.add(section2);
 
 		// Set up authors
 		Author author1 = new Author("Mike");
@@ -60,16 +61,18 @@ public class Runner {
 
 
 
-		DBArticle.updateArticlesSections(article1, sections);
-		DBArticle.updateArticlesSections(article2, sections);
-//        DBArticle.updateArticlesSections(article3, sections);
+		DBArticle.updateArticlesSections(article1, techSections);
+		DBArticle.updateArticlesSections(article2, techSections);
+		DBArticle.updateArticlesSections(article3, artSections);
+
+		List<Article> articlesInSectionOrderedByViews = DBArticle.findAllArticlesInSectionOrderByViews(techSections.get(0), 4);
 
 		Article foundArticle = DBHelper.findById(Article.class, 1);
 		Section foundSection = DBHelper.findById(Section.class, 1);
 
 		List<Article> mollysArticles = DBArticle.findAllAuthorsArticles(author2);
 
-		List<Article> articles = DBArticle.findAllArticlesInSection(sections.get(0));
+		List<Article> allArticlesInSection = DBArticle.findAllArticlesInSection(techSections.get(0));
 
 	}
 }
