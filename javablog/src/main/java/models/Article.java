@@ -1,6 +1,7 @@
 package models;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -61,6 +62,7 @@ public class Article {
 		this.imageLink = imageLink;
 	}
 
+	@Type(type = "text")
 	@Column(name = "text_content")
 	public String getTextContent() {
 		return textContent;

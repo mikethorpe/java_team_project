@@ -74,9 +74,46 @@ public class MainController {
 
 		// Set up sections
 
-		Article article2 = new Article("Article2 title", "Article 2 content", author2);
+		Article article2 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum, arcu nec auctor ullamcorper, est " +
+			"dui hendrerit purus, sit amet ullamcorper felis erat sit amet ex. Quisque ac tristique tortor. " +
+			"Duis vel nulla ut enim mollis hendrerit vitae nec sem. Vivamus at rutrum diam, id mattis velit. " +
+			"Suspendisse a metus auctor, consectetur lorem sed, pellentesque lectus. Suspendisse potenti. Nam " +
+			"nunc eros, tincidunt et lacinia vitae, vulputate id justo. Vestibulum laoreet rhoncus pharetra. " +
+			"Integer vitae tortor et risus pretium porttitor at nec massa. Ut tempor lectus a luctus congue. " +
+			"Quisque a nibh sit amet erat rhoncus posuere. Aliquam tincidunt nisl mattis tristique eleifend. " +
+			"Nunc ac dolor quis velit imperdiet auctor. Proin gravida libero quis elit aliquet viverra.\n " +
+			"Donec facilisis, dui at congue porttitor, est ligula pulvinar quam, id vestibulum sem neque sit " +
+			"amet dolor. Pellentesque elementum in mauris sed luctus. Proin a laoreet orci. Etiam a tortor sit " +
+			"amet lacus sagittis consequat sit amet quis est. Curabitur malesuada eros non sem hendrerit, " +
+			"non maximus urna interdum. Sed ac tortor molestie, malesuada risus sed, venenatis eros. Fusce " +
+			"vestibulum urna nulla, at rutrum purus blandit a. Etiam nec eleifend ex. Ut feugiat dolor sit " +
+			"amet enim dignissim, sed dapibus ligula commodo. Pellentesque nec lectus posuere, ultrices purus " +
+			"quis, aliquam tellus. Integer non lacus neque. Mauris sed egestas eros, at fermentum lorem. Maecenas " +
+			"dignissim aliquam fringilla.\n Etiam ac lobortis dui, eget porttitor magna. Fusce lacus libero, " +
+			"efficitur eu ultrices eu, feugiat id nisl. Mauris dapibus sollicitudin magna, ac sagittis mauris " +
+			"viverra eu. Suspendisse mattis enim blandit venenatis ultrices. Etiam neque felis, placerat eget " +
+			"laoreet et, euismod id nunc. Vivamus nec faucibus eros. Nam ultrices erat eu nisi commodo lobortis" +
+			". Ut blandit tellus ut ligula mattis malesuada at ut purus. Interdum et malesuada fames ac ante " +
+			"ipsum primis in faucibus. Sed blandit blandit placerat. Donec vitae elit nec nisl mollis vestibulum " +
+			"tempor ut lectus.\n" + "\n" + "Duis ut pulvinar velit. Nam cursus ac lectus vitae gravida. Donec " +
+			"in suscipit est. Pellentesque nec risus aliquam lectus rhoncus sagittis. Nam pulvinar dolor et " +
+			"risus condimentum, eget mattis tellus fermentum. Vestibulum ante ipsum primis in faucibus orci " +
+			"luctus et ultrices posuere cubilia Curae; Curabitur in vestibulum metus, at commodo erat. Nunc " +
+			"quis magna nec felis ornare lobortis ac sed ipsum. In non est convallis, laoreet elit quis, " +
+			"fringilla odio. Nam et eros eu mauris rhoncus finibus ut ac dolor. Aliquam ac lorem consectetur, " +
+			"pharetra sapien quis, convallis leo. Donec porttitor justo ac urna pretium, ac consequat lectus " +
+			"ultricies.\n" + "\n" + "Nullam ac hendrerit massa, at ornare quam. Etiam pulvinar ante non felis " +
+			"tincidunt, non euismod lectus accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+			"Donec et mollis dui. Aenean turpis felis, mattis id malesuada sit amet, venenatis ac mauris. " +
+			"Suspendisse luctus cursus tellus. Vestibulum feugiat magna sed bibendum posuere. Phasellus vel " +
+			"ullamcorper lacus. Fusce vitae vestibulum elit. Aenean facilisis tempor tellus. Nunc condimentum " +
+			"nisi purus, non porttitor orci molestie a.\n" + "\n",
+			author2
+		);
 		article2.addView();
 		article2.addView();
+		article2.setImageLink("https://www.thehappycatsite.com/wp-content/uploads/2017/10/best-treats-for-kittens.jpg");
 		article2.updateArticleDate();
 		DBHelper.save(article2);
 
