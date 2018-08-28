@@ -31,7 +31,9 @@ public class ArticleController {
 				model.put("authors", authors);
 				List<Section> sections = DBHelper.findAll(Section.class);
 				model.put("sections", sections);
-				return new ModelAndView(model, "templates/backend_layout.vtl");
+				model.put("navsections", sections);
+				model.put("section_nav", "templates/sections/navbar.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
         );
 
@@ -40,7 +42,11 @@ public class ArticleController {
 				List<Article> articles = DBHelper.findAll(Article.class);
 				model.put("template", "templates/articles/index.vtl");
 				model.put("articles", articles);
-				return new ModelAndView(model, "templates/backend_layout.vtl");
+				List<Section> sections = DBHelper.findAll(Section.class);
+				model.put("navsections", sections);
+				model.put("section_nav", "templates/sections/navbar.vtl");
+
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
         );
 
@@ -72,6 +78,9 @@ public class ArticleController {
         	int articleId = Integer.parseInt(req.params("id"));
         	Article article = DBHelper.findById(Article.class,articleId);
         	model.put("article", article);
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
         	return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
 		);

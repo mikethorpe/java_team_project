@@ -15,17 +15,23 @@
     </head>
 
     <header>
-        <h1>Blog</h1>
+        <nav>
+            <h1>Blog</h1>
+
+            #parse ( $section_nav )
+        </nav>
 
     </header>
 
-    <nav>
-        <a href="/authors"> All Authors </a> |
-        <a href="/articles"> All Articles </a> |
-        <a href="/sections"> All Sections</a>
-    </nav>
+
 
     <body>
+
+    <a href="/authors"> All Authors </a> |
+    <a href="/articles"> All Articles </a> |
+    <a href="/sections"> All Sections</a>
+
+
         <main class="container">
             #parse( $template )
         </main>

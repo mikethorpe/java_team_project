@@ -2,6 +2,7 @@ package controllers;
 
 import db.DBHelper;
 import models.Author;
+import models.Section;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -25,6 +26,9 @@ public class AuthorController {
 		get("/authors/new", (req, res) ->{
 			Map<String, Object> model = new HashMap<>();
 			model.put("template", "templates/authors/new.vtl");
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine
 		);
@@ -35,6 +39,9 @@ public class AuthorController {
 			List<Author> authors = DBHelper.findAll(Author.class);
 			model.put("template", "templates/authors/index.vtl");
 			model.put("authors", authors);
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, velocityTemplateEngine
 		);
@@ -54,6 +61,9 @@ public class AuthorController {
 			int authorId = Integer.parseInt(req.params(":id"));
 			Author author = DBHelper.findById(Author.class, authorId);
 			model.put("author", author);
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine
 		);
@@ -77,7 +87,9 @@ public class AuthorController {
 
 			model.put("author", author);
 			model.put("template", "templates/authors/show.vtl");
-
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine);
 

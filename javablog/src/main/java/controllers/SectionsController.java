@@ -27,6 +27,8 @@ public class SectionsController {
 			model.put("template", "/templates/sections/index.vtl");
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("sections", sections);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 
 		}, new VelocityTemplateEngine());
@@ -34,6 +36,9 @@ public class SectionsController {
 		get("/sections/new", (req, res) -> {
 			Map<String, Object> model = new HashMap<>();
 			model.put("template", "templates/sections/new.vtl");
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, new VelocityTemplateEngine());
 
@@ -79,6 +84,10 @@ public class SectionsController {
 			int sectionId = Integer.parseInt(req.params(":id"));
  			Section section = DBHelper.findById(Section.class, sectionId);
 			model.put("section", section);
+			List<Section> sections = DBHelper.findAll(Section.class);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, new VelocityTemplateEngine());
 
