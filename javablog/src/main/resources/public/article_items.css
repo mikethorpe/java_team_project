@@ -1,0 +1,27 @@
+
+.article_item {
+    border-style: solid;
+    border-width: 0.5px;
+    margin: 10px;
+    padding: 8px;
+}
+
+.article_title {
+    text-emphasis: bold;    
+    display: inline-block;
+}
+.article_title a {
+    text-decoration: none;
+    color: inherit;
+}
+.article_title:hover{
+    text-decoration: underline;
+}
+
+.article_last_updated{
+    display: inline-block;
+    float: right;
+}
+
+.article_author{
+}

@@ -1,11 +1,15 @@
 <h2>$section.getTitle()</h2>
 
 
-#foreach($article in $articles)
-    <p><a href="/articles/$section.getId()/$article.getId()">$article.getTitle()</a></p>
-<p>$article.getLastUpdated()</p>
-<p>$article.getAuthor().getName()</p>
-#end
+<div class="article_list">
+    #foreach($article in $articles)
+        <div class="article_item">
+            <div class="article_title"><h3><a href="/articles/$section.getId()/$article.getId()">$article.getTitle()</a></h3></div>
+            <div class="article_last_updated"><span>Last updated: $article.getLastUpdated()</span></div>
+            <div class="article_author">Author: $article.getAuthor().getName()</div>
+        </div>
+    #end
+</div>
 
 #if ($section.getId() != 1)
     #if ($mostViewedArticlesInSection.size() > 0)
