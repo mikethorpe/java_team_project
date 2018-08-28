@@ -24,8 +24,16 @@
             Select sections to post in:
 
             #foreach($section in $sections)
+
+            <div class="checkbox_with_label">
                 <label for="$section.getId()_section">$section.getTitle()</label>
-                <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
+
+                <label class="switch">
+                    <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section" class="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
             #end
         </div>
 
