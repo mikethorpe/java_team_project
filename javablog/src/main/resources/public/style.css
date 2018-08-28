@@ -74,3 +74,12 @@ h2 {
     font-weight: lighter;
 
 }
+
+table {
+    text-align: center;
+}
+
+.content {
+    margin-left: 5%;
+    margin-right: 5%;
+}

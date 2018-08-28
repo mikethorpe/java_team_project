@@ -1,0 +1,21 @@
+table {
+    margin: 20px;
+    width: 100%;
+}
+
+table li {
+    list-style: none;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
