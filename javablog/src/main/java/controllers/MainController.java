@@ -17,8 +17,8 @@ public class MainController {
 
 	public static void main(String[] args) {
 
-		//location of static files - .css, images, etc
-		staticFileLocation("/public");
+        //location of static files - .css, images, etc
+        staticFileLocation("/public");
 
 		//setup
 		setupEndPoints();

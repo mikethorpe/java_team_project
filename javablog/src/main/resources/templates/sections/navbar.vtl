@@ -1,3 +1,10 @@
-#foreach($navsection in $navsections)
-    <a href="/sections/$navsection.getId()">$navsection.getTitle()</a> |
-#end
+<div class="dropdown">
+    <button class="drop">All Sections</button>
+    <div class="dropdown-content">
+        <p>#foreach($navsection in $navsections)
+            <a href="/sections/$navsection.getId()">
+                $navsection.getTitle()
+            </a>
+            #end</p>
+    </div>
+</div>
