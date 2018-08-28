@@ -1,44 +1,44 @@
-<h2>Edit Article:</h2>
+<div class="content">
 
-<p>Last updated: $article.getLastUpdated()<p>
+    <h2>Edit Article:</h2>
 
-<form action="/articles/$article.getId()/edit" method="post">
+    <p>Last updated: $article.getLastUpdated()<p>
 
-    <label for="Title">Title: </label>
-    <input type="text" name="title" id="title" required="true" value="$article.getTitle()">
+    <form action="/articles/$article.getId()/edit" method="post">
 
-    <select name="authorId" id="authorId" required="true">
-        #foreach($author in $authors)
-            #if($author.getId() == $article.getAuthor().getId() )
-                <option value="$author.getId()" selected>$author.getName()</option>
+        <label for="Title">Title: </label>
+        <input type="text" name="title" id="title" required="true" value="$article.getTitle()">
+
+        <select name="authorId" id="authorId" required="true">
+            #foreach($author in $authors)
+                #if($author.getId() == $article.getAuthor().getId() )
+                    <option value="$author.getId()" selected>$author.getName()</option>
+                #else
+                    <option value="$author.getId()">$author.getName()</option>
+                #end
+            #end
+        </select>
+
+        <p>Select sections to post in:</p>
+
+        #foreach($section in $sections)
+            <label for="$section.getId()_section">$section.getTitle()</label>
+
+            #if($article.getSectionIds().contains($section.getId()))
+                <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section" checked>
             #else
-                <option value="$author.getId()">$author.getName()</option>
+                <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
             #end
         #end
-    </select>
 
-    <p>Select sections to post in:</p>
+        <label for="image_link">Link to article image:</label>
+        <input type="text" name="image_link" id="image_link" value="$article.getImageLink()">
 
-    #foreach($section in $sections)
-        <label for="$section.getId()_section">$section.getTitle()</label>
+        <label for="textContent">Text content: </label>
+        <input type="text" name="textContent" id="textContent" required="true" value="$article.getTextContent()">
 
-        #if($article.getSectionIds().contains($section.getId()))
-            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section" checked>
-        #else
-            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
-        #end
-    #end
+        <input type="submit" value="Update Article" class="button"/>
 
-    <label for="image_link">Link to article image:</label>
-    <input type="text" name="image_link" id="image_link" value="$article.getImageLink()">
+    </form>
 
-    <label for="textContent">Text content: </label>
-    <input type="text" name="textContent" id="textContent" required="true" value="$article.getTextContent()">
-
-    <input type="submit" value="Update Article" class="button"/>
-
-</form>
-
-
-
-
+</div>

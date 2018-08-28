@@ -1,14 +1,14 @@
-<h2>Edit Author:</h2>
+<div class="content">
 
-<form action="/authors/$author.getId()/edit" method="post">
+    <h2>Edit Author:</h2>
 
-    <label for="name">Name: </label>
-    <input type="text" name="name" id="name" required="true" value="$author.getName()">
+    <form action="/authors/$author.getId()/edit" method="post">
+
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" required="true" value="$author.getName()">
 
     <input type="submit" value="Update Author" class="button"/>
 
-</form>
+    </form>
 
-
-
-
+</div>

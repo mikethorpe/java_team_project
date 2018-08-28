@@ -1,39 +1,42 @@
-<h2>All Sections:</h2>
+<div class="content">
 
-<form action="/sections/new" method="get">
-    <input type="submit" value="New Section" class="button"/>
-</form>
+    <h2>All Sections:</h2>
 
-<table>
+    <form action="/sections/new" method="get">
+        <input type="submit" value="New Section" class="button"/>
+    </form>
 
-    <tr>
-        <th>Title:</th>
-    </tr>
-
-    #foreach($section in $sections)
-
+    <table>
 
         <tr>
-
-            <td>
-                <a href="/sections/$section.getId()">$section.getTitle()</a>
-            </td>
-
-            <td>
-                <form action="/sections/$section.getId()/edit" method="get">
-                    <input type="submit" value="Edit" class="button">
-                </form>
-            </td>
-
-            #if ($section.getId() != 1)
-            <td>
-                <form action="/sections/$section.getId()/delete" method="post">
-                    <input type="submit" value="Delete" class="button">
-                </form>
-            </td>
-            #end
-
+            <th>Title:</th>
         </tr>
-    #end
 
-</table>
+        #foreach($section in $sections)
+
+
+            <tr>
+
+                <td>
+                    <a href="/sections/$section.getId()">$section.getTitle()</a>
+                </td>
+
+                <td>
+                    <form action="/sections/$section.getId()/edit" method="get">
+                        <input type="submit" value="Edit" class="button">
+                    </form>
+                </td>
+
+                #if ($section.getId() != 1)
+                <td>
+                    <form action="/sections/$section.getId()/delete" method="post">
+                        <input type="submit" value="Delete" class="button">
+                    </form>
+                </td>
+                #end
+
+            </tr>
+        #end
+
+    </table>
+</div>

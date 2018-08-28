@@ -16,6 +16,9 @@ table a:hover {
     text-decoration: underline;
 }
 
+table tr:hover {
+    background-color: #BEBEBE;
+}
 
 th {
     background-color: #4CAF50;

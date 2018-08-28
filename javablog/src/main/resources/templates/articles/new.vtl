@@ -1,29 +1,32 @@
-<h2>Create Article:</h2>
+<div class="content">
 
-<form action="/articles" method="post">
+    <h2>Create Article:</h2>
 
-    <label for="title">Title: </label>
-    <input type="text" name="title" id="title" required="true">
+    <form action="/articles" method="post">
 
-    <label for="authorId">Author: </label>
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" required="true">
 
-    <select name="authorId" id="authorId" required="true">
-        #foreach($author in $authors)
-        <option value="$author.getId()">$author.getName()</option>
+        <label for="authorId">Author: </label>
+
+        <select name="authorId" id="authorId" required="true">
+            #foreach($author in $authors)
+            <option value="$author.getId()">$author.getName()</option>
+            #end
+        </select>
+
+        <p>Select sections to post in:</p>
+        #foreach($section in $sections)
+            <label for="$section.getId()_section">$section.getTitle()</label>
+            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
         #end
-    </select>
+        <label for="image_link">Link to article image: </label>
+        <input type="text" name="image_link" id="image_link">
 
-    <p>Select sections to post in:</p>
-    #foreach($section in $sections)
-        <label for="$section.getId()_section">$section.getTitle()</label>
-        <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
-    #end
-    <label for="image_link">Link to article image: </label>
-    <input type="text" name="image_link" id="image_link">
+        <label for="text_content">Text: </label>
+        <input type="text" name="text_content" id="text_content" required="true">
 
-    <label for="text_content">Text: </label>
-    <input type="text" name="text_content" id="text_content" required="true">
+        <input type="submit" value="Create Article" class="button"/>
 
-    <input type="submit" value="Create Article" class="button"/>
-
-</form>
+    </form>
+</div>

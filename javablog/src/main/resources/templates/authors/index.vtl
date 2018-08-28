@@ -1,20 +1,23 @@
-<h2>All Authors:</h2>
+<div class="content">
 
-<form action="/authors/new" method="get">
-    <input type="submit" value="New author" class="button"/>
-</form>
+    <h2>All Authors:</h2>
+
+    <form action="/authors/new" method="get">
+        <input type="submit" value="New author" class="button"/>
+    </form>
 
 
-<table>
+    <table>
 
-    <tr>
-        <th>Name:</th>
-    </tr>
-
-    #foreach($author in $authors)
         <tr>
-            <td><a href="/authors/$author.getId()">$author.getName()</a></td>
+            <th>Name:</th>
         </tr>
-    #end
 
-</table>
+        #foreach($author in $authors)
+            <tr>
+                <td><a href="/authors/$author.getId()">$author.getName()</a></td>
+            </tr>
+        #end
+
+    </table>
+</div>

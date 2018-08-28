@@ -1,14 +1,13 @@
-<h2>Edit Section:</h2>
+<div class="content">
 
-<form action="/sections/$section.getId()/edit" method="post">
+    <h2>Edit Section:</h2>
 
-    <label for="Title">Title: </label>
-    <input type="text" name="title" id="title" required="true" value="$section.getTitle()">
+    <form action="/sections/$section.getId()/edit" method="post">
 
-    <input type="submit" value="Update Section" class="button"/>
+        <label for="Title">Title: </label>
+        <input type="text" name="title" id="title" required="true" value="$section.getTitle()">
 
-</form>
+        <input type="submit" value="Update Section" class="button"/>
 
-
-
-
+    </form>
+</div>
