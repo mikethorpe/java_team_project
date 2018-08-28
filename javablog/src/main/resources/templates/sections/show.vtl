@@ -1,58 +1,64 @@
 <h2>$section.getTitle()</h2>
 
+<div class="gridcontainer">
 
-<div class="article_list">
-    #foreach($article in $articles)
-        <div class="article_item">
-            <div class="article_title"><h3><a href="/articles/$section.getId()/$article.getId()">$article.getTitle()</a></h3></div>
-            <div class="article_last_updated"><span>Last updated: $article.getLastUpdated()</span></div>
-            <div class="article_author">Author: $article.getAuthor().getName()</div>
+    <div class="article_list">
+        #foreach($article in $articles)
+            <div class="article_item">
+                <div class="article_title"><h3><a href="/articles/$section.getId()/$article.getId()">$article.getTitle()</a></h3></div>
+                <div class="article_last_updated"><span>Last updated: $article.getLastUpdated()</span></div>
+                <div class="article_author">Author: $article.getAuthor().getName()</div>
+            </div>
+        #end
+    </div>
+
+    <div>
+
+        #if ($section.getId() != 1)
+        <div class="most_viewed_list">
+            #if ($mostViewedArticlesInSection.size() > 0)
+            <h3>Most viewed articles in $section.getTitle()</h3>
+            <table>
+
+                <tr>
+                    <th>Title:</th>
+                    <th>Views:</th>
+                </tr>
+
+                #foreach($mostViewedArticleInSection in $mostViewedArticlesInSection)
+                    <tr>
+                        <td><a href="/articles/$section.getId()/$mostViewedArticleInSection.getId()">$mostViewedArticleInSection.getTitle()</a></td>
+                        <td>$mostViewedArticleInSection.getNumberOfViews()</td>
+                    </tr>
+                #end
+
+            </table>
+            #end
         </div>
-    #end
-</div>
-
-#if ($section.getId() != 1)
-<div class="most_viewed_list">
-    #if ($mostViewedArticlesInSection.size() > 0)
-    <h3>Most viewed articles in $section.getTitle()</h3>
-    <table>
-
-        <tr>
-            <th>Title:</th>
-            <th>Views:</th>
-        </tr>
-
-        #foreach($mostViewedArticleInSection in $mostViewedArticlesInSection)
-            <tr>
-                <td><a href="/articles/$section.getId()/$mostViewedArticleInSection.getId()">$mostViewedArticleInSection.getTitle()</a></td>
-                <td>$mostViewedArticleInSection.getNumberOfViews()</td>
-            </tr>
         #end
 
-    </table>
-    #end
-</div>
-#end
+        #if ($section.getId() == 1)
+        <div class="most_viewed_list">
+            #if ($mostViewedArticles.size() > 0)
+            <h3>Most viewed from across the site</h3>
+            <table>
 
-#if ($section.getId() == 1)
-<div class="most_viewed_list">
-    #if ($mostViewedArticles.size() > 0)
-    <h3>Most viewed from across the site</h3>
-    <table>
+                <tr>
+                    <th>Title:</th>
+                    <th>Views:</th>
+                </tr>
 
-        <tr>
-            <th>Title:</th>
-            <th>Views:</th>
-        </tr>
+                #foreach($mostViewedArticle in $mostViewedArticles)
+                <tr>
+                    <td><a href ="/articles/$section.getId()/$mostViewedArticle.getId()">$mostViewedArticle.getTitle()</a></td>
+                    <td>$mostViewedArticle.getNumberOfViews()</td>
+                </tr>
+                #end
 
-        #foreach($mostViewedArticle in $mostViewedArticles)
-        <tr>
-            <td><a href ="/articles/$section.getId()/$mostViewedArticle.getId()">$mostViewedArticle.getTitle()</a></td>
-            <td>$mostViewedArticle.getNumberOfViews()</td>
-        </tr>
+            </table>
+            #end
+        </div>
         #end
 
-    </table>
-    #end
+    </div>
 </div>
-#end
