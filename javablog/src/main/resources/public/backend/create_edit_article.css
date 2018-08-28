@@ -81,7 +81,9 @@ textarea {
 }
 
 select {
-    width: 90%;
+    width: 100%;
+    height: 20px;
+    margin: 5px 0px 5px 0px;      
 }
 
 .form_table td {
@@ -90,10 +92,11 @@ select {
 }
 
 .form_table {
-    text-align: left;
-    width: 100%;
+    width: 20%;
+    margin: 0px;
 }
 
 .form_label {
     display: block;
+    margin: 5px 0px 5px 0px;
 }

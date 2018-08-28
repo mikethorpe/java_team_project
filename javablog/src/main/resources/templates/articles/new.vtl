@@ -4,32 +4,26 @@
 
     <form action="/articles" method="post">
 
+        <div class="form_label">
+            <label for="title">Title: </label>
+        </div>
+        <input type="text" name="title" id="title" required="true">
+
+
+        <div class="form_label">
+            <label for="authorId">Author: </label>
+        </div>
+        <select name="authorId" id="authorId" required="true">
+            #foreach($author in $authors)
+            <option value="$author.getId()">$author.getName()</option>
+            #end
+        </select>
+
+
+        <div class="form_label">
+            <td>Select sections to post in:</td>
+        </div>
         <table class="form_table">
-
-            <tr>
-                <td><label for="title">Title: </label></td>
-                <td><input type="text" name="title" id="title" required="true"></td>
-            </tr>
-
-
-            <tr>
-                <td><label for="authorId">Author: </label></td>
-                <td>
-                    <select name="authorId" id="authorId" required="true">
-                        #foreach($author in $authors)
-                            <option value="$author.getId()">$author.getName()</option>
-                        #end
-                    </select>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td>Select sections to post in:</td>
-                <td></td>
-            </tr>
-
-
 
             #foreach($section in $sections)
                 <tr>
