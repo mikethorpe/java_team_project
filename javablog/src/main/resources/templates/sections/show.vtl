@@ -7,7 +7,7 @@
 <p>$article.getAuthor().getName()</p>
 #end
 
-
+#if ($mostViewedArticles.size() > 0)
 <p>Most viewed articles in section:</p>
 <table>
 
@@ -28,3 +28,4 @@
     #end
 
 </table>
+#end
