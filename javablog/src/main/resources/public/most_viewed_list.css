@@ -1,0 +1,23 @@
+.most_viewed_list{
+    padding: 7px;
+    margin: 10px;
+    border-style: solid;
+    border-width: 0.5px;
+}
+
+.most_viewed_list a {
+    text-decoration: none;
+    color: inherit;
+}
+.most_viewed_list a:hover{
+    text-decoration: underline;
+}
+
+.most_viewed_list table {
+    margin: auto;
+    text-align: center;
+}
+
+.most_viewed_list h3 {
+    text-align: center;
+}
