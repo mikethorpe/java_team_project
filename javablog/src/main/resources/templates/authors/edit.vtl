@@ -4,7 +4,9 @@
 
     <form action="/authors/$author.getId()/edit" method="post">
 
-        <label for="name">Name: </label>
+        <div class="form_label">
+            <label for="name">Name: </label>
+        </div>
         <input type="text" name="name" id="name" required="true" value="$author.getName()">
 
     <input type="submit" value="Update Author" class="button"/>

@@ -4,7 +4,9 @@
 
     <form action="/sections/$section.getId()/edit" method="post">
 
-        <label for="Title">Title: </label>
+        <div class="form_label">
+            <label for="Title">Title:</label>
+        </div>
         <input type="text" name="title" id="title" required="true" value="$section.getTitle()">
 
         <input type="submit" value="Update Section" class="button"/>
