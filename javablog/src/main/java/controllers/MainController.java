@@ -4,6 +4,8 @@ import db.DBHelper;
 import models.Article;
 import models.Author;
 import models.Section;
+import spark.template.velocity.VelocityTemplateEngine;
+import static spark.Spark.get;
 
 public class MainController {
 
@@ -18,7 +20,24 @@ public class MainController {
 		SectionsController sectionsController = new SectionsController();
 	}
 
+
+
 	private static void	setupEndPoints(){
+
+		//Redirects to main section on frontend
+		get("/", (req, res) -> {
+			res.redirect("/sections/1");
+			return null;
+			}, new VelocityTemplateEngine()
+		);
+
+		//Redirects to articles on backend section
+		get("/admin", (req, res) -> {
+					res.redirect("/articles");
+					return null;
+				}, new VelocityTemplateEngine()
+		);
+
 		// Seeds
 		Author author1 = new Author("Mike");
 		DBHelper.save(author1);
