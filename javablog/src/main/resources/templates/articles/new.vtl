@@ -21,14 +21,14 @@
 
 
         <div class="form_label">
-            <td>Select sections to post in:</td>
+            Select sections to post in:
         </div>
         <table class="form_table">
 
             #foreach($section in $sections)
                 <tr>
 
-                <td><label for="$section.getId()_section">$section.getTitle()</label></td>
+                <td><label for="$section.getId()_section">$section.getTitle():</label></td>
 
                     <td>
                         <label class="switch">
