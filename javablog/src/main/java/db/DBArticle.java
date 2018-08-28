@@ -64,31 +64,32 @@ public class DBArticle {
 
 
 
-		public static List<Article> findAllArticlesInSectionOrderByViews(Section section, int numberOfResults){
-			session = HibernateUtil.getSessionFactory().openSession();
-			List<Article> listOfArticles = new ArrayList<>();
+	public static List<Article> findAllArticlesInSectionOrderByViews(Section section, int numberOfResults){
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Article> listOfArticles = new ArrayList<>();
 
-			try {
+		try {
 			Criteria cr = session.createCriteria(Article.class);
 			cr.createAlias("sections", "section");
 			cr.add(Restrictions.eq("section.id", section.getId()));
 			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 			cr.addOrder(Order.desc("numberOfViews"));
+			cr.add(Restrictions.gt("numberOfViews",0));
 			listOfArticles = cr.list();
-			}
-			catch (HibernateException ex){
-				ex.printStackTrace();
-			}
-			finally {
-				session.close();
-			}
-
-			// Ensure we don't try to get more articles back than exist in the query
-			if (numberOfResults > listOfArticles.size()) {
-				numberOfResults = listOfArticles.size();
-			}
-			List<Article> results = listOfArticles.subList(0, numberOfResults);
-			return results;
 		}
+		catch (HibernateException ex){
+			ex.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+
+		// Ensure we don't try to get more articles back than exist in the query
+		if (numberOfResults > listOfArticles.size()) {
+			numberOfResults = listOfArticles.size();
+		}
+		List<Article> results = listOfArticles.subList(0, numberOfResults);
+		return results;
+	}
 
 }
