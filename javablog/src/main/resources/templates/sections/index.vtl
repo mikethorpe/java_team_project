@@ -11,6 +11,8 @@
     </tr>
 
     #foreach($section in $sections)
+
+
         <tr>
 
             <td>
@@ -23,11 +25,13 @@
                 </form>
             </td>
 
+            #if ($section.getId() != 1)
             <td>
                 <form action="/sections/$section.getId()/delete" method="post">
                     <input type="submit" value="Delete" class="button">
                 </form>
             </td>
+            #end
 
         </tr>
     #end

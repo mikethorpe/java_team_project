@@ -58,7 +58,7 @@ public class MainController {
 		DBHelper.save(article3);
 
 
-		Section section1 = new Section("Technology");
+		Section section1 = new Section("HomePage");
 		DBHelper.save(section1);
 
 		Section section2 = new Section("Art");
