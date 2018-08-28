@@ -5,10 +5,14 @@ import models.Article;
 import models.Author;
 import models.Section;
 
+import static spark.SparkBase.staticFileLocation;
+
 public class MainController {
 
 	public static void main(String[] args) {
 
+        //location of static files - .css, images, etc
+        staticFileLocation("/public");
 		//setup
 		setupEndPoints();
 
