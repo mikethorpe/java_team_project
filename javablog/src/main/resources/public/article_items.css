@@ -8,7 +8,9 @@
 
 .article_title {
     text-emphasis: bold;    
-    display: inline-block;
+    display: block;
+    margin: 10px;
+    margin-bottom: 5px;
 }
 .article_title a {
     text-decoration: none;
@@ -19,9 +21,21 @@
 }
 
 .article_last_updated{
-    display: inline-block;
     float: right;
+    margin: 10px;
+    margin-bottom: 5px;
 }
 
 .article_author{
+    margin: 10px;
+    margin-bottom: 5px;
+    
 }
+
+.article_reduced_content {
+    margin: 10px;
+    font-style: italic;
+}
+
+
+

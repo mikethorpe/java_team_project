@@ -143,4 +143,16 @@ public class Article {
 	public void addView(){
 		this.numberOfViews++;
 	}
+
+	@Transient
+	public String getReducedTextContent(int numberOfCharacters){
+		int textContentLength = this.textContent.length();
+		if (textContentLength < numberOfCharacters)
+		{
+			numberOfCharacters = textContentLength;
+		}
+		String reducedContent = this.textContent.substring(0, numberOfCharacters) + "...";
+		return reducedContent;
+	}
+
 }
