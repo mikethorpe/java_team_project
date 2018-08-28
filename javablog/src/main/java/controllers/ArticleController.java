@@ -149,6 +149,7 @@ public class ArticleController {
 			model.put("navsections", sections);
 			model.put("template", "templates/articles/show.vtl");
 			model.put("article", article);
+			model.put("section", new Section(""));
 			model.put("section_nav", "templates/sections/navbar.vtl");
 
 
