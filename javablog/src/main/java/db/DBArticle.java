@@ -92,4 +92,32 @@ public class DBArticle {
 		return results;
 	}
 
+
+
+	public static List<Article> findAllArticlesOrderByViews(int numberOfResults){
+		session = HibernateUtil.getSessionFactory().openSession();
+		List<Article> listOfArticles = new ArrayList<>();
+
+		try {
+			Criteria cr = session.createCriteria(Article.class);
+			cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+			cr.addOrder(Order.desc("numberOfViews"));
+			cr.add(Restrictions.gt("numberOfViews",0));
+			listOfArticles = cr.list();
+		}
+		catch (HibernateException ex){
+			ex.printStackTrace();
+		}
+		finally {
+			session.close();
+		}
+
+		// Ensure we don't try to get more articles back than exist in the query
+		if (numberOfResults > listOfArticles.size()) {
+			numberOfResults = listOfArticles.size();
+		}
+		List<Article> results = listOfArticles.subList(0, numberOfResults);
+		return results;
+	}
+
 }
