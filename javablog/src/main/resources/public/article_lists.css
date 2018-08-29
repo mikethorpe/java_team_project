@@ -9,7 +9,7 @@
 .section_list_head {
     display: block;
     text-align: center;
-    background-color: grey;
+    background-color: #FFB800;
     padding-top: 10px;
     padding-bottom: 10px;
     overflow: hidden;

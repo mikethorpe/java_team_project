@@ -7,12 +7,12 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     -webkit-transition-duration: 0.4s; /* Safari */
         transition-duration: 0.4s;
 }
 
 .button:hover {
-    background-color: #4CAF50; /* Green */
+    background-color: #4D7393; /* Green */
     color: white;
 }
