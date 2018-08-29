@@ -28,7 +28,8 @@ public class SectionsController {
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("sections", sections);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 
 		}, new VelocityTemplateEngine());
@@ -38,7 +39,8 @@ public class SectionsController {
 			model.put("template", "templates/sections/new.vtl");
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, new VelocityTemplateEngine());
 
@@ -65,7 +67,7 @@ public class SectionsController {
 			model.put("navsections", sections);
 			model.put("articles", articles);
 			model.put("template", "templates/sections/show.vtl");
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
 
 			return new ModelAndView(model, "templates/frontend_layout.vtl");
 		}, new VelocityTemplateEngine());
@@ -86,8 +88,9 @@ public class SectionsController {
 			model.put("section", section);
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, new VelocityTemplateEngine());
 

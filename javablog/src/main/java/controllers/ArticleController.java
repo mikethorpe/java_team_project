@@ -32,7 +32,8 @@ public class ArticleController {
 				List<Section> sections = DBHelper.findAll(Section.class);
 				model.put("sections", sections);
 				model.put("navsections", sections);
-				model.put("section_nav", "templates/sections/navbar.vtl");
+				model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+				model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
         );
@@ -44,7 +45,8 @@ public class ArticleController {
 				model.put("articles", articles);
 				List<Section> sections = DBHelper.findAll(Section.class);
 				model.put("navsections", sections);
-				model.put("section_nav", "templates/sections/navbar.vtl");
+				model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+				model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
@@ -80,8 +82,9 @@ public class ArticleController {
         	model.put("article", article);
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
-        	return new ModelAndView(model, "templates/backend_layout.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
+			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
 		);
 
@@ -106,7 +109,8 @@ public class ArticleController {
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("sections", sections);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
 		);
@@ -146,7 +150,7 @@ public class ArticleController {
 			model.put("template", "templates/articles/show.vtl");
 			model.put("article", article);
 			model.put("section", section);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
 
 			return new ModelAndView(model, "templates/frontend_layout.vtl");
 		}, new VelocityTemplateEngine());
@@ -161,7 +165,7 @@ public class ArticleController {
 			model.put("template", "templates/articles/show.vtl");
 			model.put("article", article);
 			model.put("section", new Section(""));
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
 
 
 			return new ModelAndView(model, "templates/frontend_layout.vtl");

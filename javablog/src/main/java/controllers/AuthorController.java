@@ -28,7 +28,8 @@ public class AuthorController {
 			model.put("template", "templates/authors/new.vtl");
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine
 		);
@@ -41,7 +42,8 @@ public class AuthorController {
 			model.put("authors", authors);
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, velocityTemplateEngine
 		);
@@ -63,7 +65,8 @@ public class AuthorController {
 			model.put("author", author);
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine
 		);
@@ -89,7 +92,8 @@ public class AuthorController {
 			model.put("template", "templates/authors/show.vtl");
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("navsections", sections);
-			model.put("section_nav", "templates/sections/navbar.vtl");
+			model.put("section_nav", "templates/navbars/navbar_sections.vtl");
+			model.put("admin_nav", "templates/navbars/navbar_admin.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 		}, velocityTemplateEngine);
 
