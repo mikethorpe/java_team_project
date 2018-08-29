@@ -37,7 +37,7 @@
     border: none;
     cursor: pointer;
     border-radius: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 16px;
     font-weight: lighter;
     font-family: sans-serif;
 
@@ -58,14 +58,14 @@
 
 header {
     height: 86px;
-    background: #3A506B;
+    background: #FFB800;
 
     }
 
 h1 {
     line-height: 86px;
     float: left;
-    font-size: 30px;
+    font-size: 40px;
     padding-left: 40px;
     font-family: sans-serif;
     font-weight: lighter;
@@ -82,6 +82,13 @@ h2 {
 
 
     }
+
+h3.section_title {
+    text-align: center;
+    padding: 40px;
+    font-size: 30px;
+    font-family: sans-serif;
+}
 
 h5 {
     text-align: left;
