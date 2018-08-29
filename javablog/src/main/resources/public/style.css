@@ -5,6 +5,11 @@
     font-weight: lighter;
     }
 
+/* hide scrollbars */
+::-webkit-scrollbar {
+    display: none;
+    }
+
 .dropdown {
     position: relative;
     top: 16px;
