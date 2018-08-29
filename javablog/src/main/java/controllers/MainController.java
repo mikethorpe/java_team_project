@@ -165,10 +165,10 @@ public class MainController {
 		article2.updateArticleDate();
 		DBHelper.save(article2);
 
-		Article article3 = new Article("\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
-                "consectetur, adipisci velit...\"\n" +
-                "\"There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
-                "it is pain...\"", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
+		Article article3 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
+                "consectetur, adipisci velit..." +
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
+                "it is pain...", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
                 " mauris a nunc vestibulum, eu cursus nisi luctus. Suspendisse mattis ornare velit, sit amet vulputate" +
                 " justo finibus sit amet. Suspendisse malesuada et lectus quis sollicitudin. Cras et mattis ante. Cras" +
                 " viverra hendrerit consequat. Duis ornare, nunc eget consequat pellentesque, enim eros hendrerit magna," +
@@ -214,10 +214,10 @@ public class MainController {
 		article3.updateArticleDate();
 		DBHelper.save(article3);
 
-        Article article4 = new Article("\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
-                "consectetur, adipisci velit...\"\n" +
-                "\"There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
-                "it is pain...\"", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
+        Article article4 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
+                "consectetur, adipisci velit..." +
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
+                "it is pain...", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
                 " mauris a nunc vestibulum, eu cursus nisi luctus. Suspendisse mattis ornare velit, sit amet vulputate" +
                 " justo finibus sit amet. Suspendisse malesuada et lectus quis sollicitudin. Cras et mattis ante. Cras" +
                 " viverra hendrerit consequat. Duis ornare, nunc eget consequat pellentesque, enim eros hendrerit magna," +
@@ -263,10 +263,10 @@ public class MainController {
         article4.updateArticleDate();
         DBHelper.save(article4);
 
-        Article article5 = new Article("\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
-                "consectetur, adipisci velit...\"\n" +
-                "\"There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
-                "it is pain...\"", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
+        Article article5 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
+                "consectetur, adipisci velit..." +
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
+                "it is pain...", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
                 " mauris a nunc vestibulum, eu cursus nisi luctus. Suspendisse mattis ornare velit, sit amet vulputate" +
                 " justo finibus sit amet. Suspendisse malesuada et lectus quis sollicitudin. Cras et mattis ante. Cras" +
                 " viverra hendrerit consequat. Duis ornare, nunc eget consequat pellentesque, enim eros hendrerit magna," +
@@ -312,10 +312,10 @@ public class MainController {
         article5.updateArticleDate();
         DBHelper.save(article5);
 
-        Article article6 = new Article("\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
-                "consectetur, adipisci velit...\"\n" +
-                "\"There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
-                "it is pain...\"", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
+        Article article6 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
+                "consectetur, adipisci velit..." +
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
+                "it is pain...", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
                 " mauris a nunc vestibulum, eu cursus nisi luctus. Suspendisse mattis ornare velit, sit amet vulputate" +
                 " justo finibus sit amet. Suspendisse malesuada et lectus quis sollicitudin. Cras et mattis ante. Cras" +
                 " viverra hendrerit consequat. Duis ornare, nunc eget consequat pellentesque, enim eros hendrerit magna," +
@@ -361,10 +361,10 @@ public class MainController {
         article6.updateArticleDate();
         DBHelper.save(article6);
 
-        Article article7 = new Article("\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
-                "consectetur, adipisci velit...\"\n" +
-                "\"There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
-                "it is pain...\"", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
+        Article article7 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
+                "consectetur, adipisci velit..." +
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
+                "it is pain...", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
                 " mauris a nunc vestibulum, eu cursus nisi luctus. Suspendisse mattis ornare velit, sit amet vulputate" +
                 " justo finibus sit amet. Suspendisse malesuada et lectus quis sollicitudin. Cras et mattis ante. Cras" +
                 " viverra hendrerit consequat. Duis ornare, nunc eget consequat pellentesque, enim eros hendrerit magna," +
@@ -410,10 +410,10 @@ public class MainController {
         article7.updateArticleDate();
         DBHelper.save(article7);
 
-        Article article8 = new Article("\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
-                "consectetur, adipisci velit...\"\n" +
-                "\"There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
-                "it is pain...\"", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
+        Article article8 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
+                "consectetur, adipisci velit..." +
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
+                "it is pain...", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
                 " mauris a nunc vestibulum, eu cursus nisi luctus. Suspendisse mattis ornare velit, sit amet vulputate" +
                 " justo finibus sit amet. Suspendisse malesuada et lectus quis sollicitudin. Cras et mattis ante. Cras" +
                 " viverra hendrerit consequat. Duis ornare, nunc eget consequat pellentesque, enim eros hendrerit magna," +
@@ -459,10 +459,10 @@ public class MainController {
         article8.updateArticleDate();
         DBHelper.save(article8);
 
-        Article article9 = new Article("\"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
-                "consectetur, adipisci velit...\"\n" +
-                "\"There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
-                "it is pain...\"", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
+        Article article9 = new Article("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, " +
+                "consectetur, adipisci velit..." +
+                "There is no one who loves pain itself, who seeks after it and wants to have it, simply because " +
+                "it is pain...", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare" +
                 " mauris a nunc vestibulum, eu cursus nisi luctus. Suspendisse mattis ornare velit, sit amet vulputate" +
                 " justo finibus sit amet. Suspendisse malesuada et lectus quis sollicitudin. Cras et mattis ante. Cras" +
                 " viverra hendrerit consequat. Duis ornare, nunc eget consequat pellentesque, enim eros hendrerit magna," +
