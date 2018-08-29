@@ -1,10 +1,8 @@
 <div class="dropdown">
     <button class="drop">Section</button>
     <div class="dropdown-content">
-        <p>#foreach($navsection in $navsections)
-            <a href="/sections/$navsection.getId()">
-                $navsection.getTitle()
-            </a>
-            #end</p>
+        #foreach($navsection in $navsections)
+            <a href="/sections/$navsection.getId()">$navsection.getTitle()</a>
+            #end
     </div>
 </div>
