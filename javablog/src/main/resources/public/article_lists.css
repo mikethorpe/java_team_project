@@ -1,6 +1,17 @@
 .article_list{
-    padding: 7px;
     margin: 10px;
     border-style: solid;
+    border-color: #E8E8E8;
     border-width: 0.5px;
+    overflow: hidden;
+}
+
+.section_list_head {
+    display: block;
+    text-align: center;
+    background-color: grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    /* border: solid; */
 }
