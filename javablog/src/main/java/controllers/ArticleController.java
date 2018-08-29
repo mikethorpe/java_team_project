@@ -105,6 +105,8 @@ public class ArticleController {
 			model.put("authors", authors );
 			List<Section> sections = DBHelper.findAll(Section.class);
 			model.put("sections", sections);
+			model.put("navsections", sections);
+			model.put("section_nav", "templates/sections/navbar.vtl");
 			return new ModelAndView(model, "templates/backend_layout.vtl");
 			}, new VelocityTemplateEngine()
 		);
