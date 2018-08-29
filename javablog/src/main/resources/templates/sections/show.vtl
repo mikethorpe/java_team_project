@@ -4,6 +4,10 @@
 <div class="gridcontainer">
 
     <div class="article_list">
+
+        <div class="section_list_head">
+            Latest articles
+        </div>
         #foreach($article in $articles)
             <div class="article_item">
                 <div class="article_title"><h3><a href="/articles/$section.getId()/$article.getId()">$article.getTitle()</a></h3></div>
@@ -18,8 +22,13 @@
 
         #if ($section.getId() != 1)
         <div class="most_viewed_list">
+
             #if ($mostViewedArticlesInSection.size() > 0)
-            <h3>Most viewed articles in $section.getTitle()</h3>
+
+            <div class="section_list_head">
+                Most viewed in $section.getTitle()
+            </div>
+
             <table>
 
                 <tr>
@@ -42,12 +51,14 @@
         #if ($section.getId() == 1)
         <div class="most_viewed_list">
             #if ($mostViewedArticles.size() > 0)
-            <h3>Most viewed from across the site</h3>
+            <div class="section_list_head">
+                Most viewed from across the site
+            </div>
             <table>
 
                 <tr>
-                    <th>Title:</th>
-                    <th>Views:</th>
+                    <th></th>
+                    <th>Views</th>
                 </tr>
 
                 #foreach($mostViewedArticle in $mostViewedArticles)
