@@ -1,16 +1,19 @@
-<div>
+<div class="article_content">
 <h2>$article.getTitle()</h2>
+
+<h5 class="article_content">Last updated: $article.getLastUpdated()</h5>
+<h5 class="article_content">By $article.getAuthor().getName()</h5>
 
 <img src="$article.getImageLink()" class="center">
 
-<h5>$article.getLastUpdated()</h5>
+
 
 <p>$article.getTextContent()</p>
 
 
 
 #if($section.getTitle() != "")
-    <h5>by $article.getAuthor().getName()</h5>
-    <a href="/sections/$section.getId()" class="link"> Back to Sections</a>
+
+    <a href="/sections/$section.getId()" class="link"> Back to $section.getTitle()</a>
 #end
 </div>
