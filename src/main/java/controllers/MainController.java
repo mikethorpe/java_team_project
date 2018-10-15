@@ -5,10 +5,13 @@ import db.DBHelper;
 import models.Article;
 import models.Author;
 import models.Section;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static spark.Spark.*;
 import static spark.Spark.get;
