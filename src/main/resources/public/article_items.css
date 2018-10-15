@@ -1,0 +1,42 @@
+
+.article_item {
+    border-style: solid;
+    border-color: #E8E8E8;
+    border-width: 0.5px;
+    margin: 10px;
+    padding: 8px;
+}
+
+.article_title {
+    text-emphasis: bold;    
+    display: block;
+    margin: 10px;
+    margin-bottom: 5px;
+}
+.article_title a {
+    text-decoration: none;
+    color: inherit;
+}
+.article_title:hover{
+    text-decoration: underline;
+}
+
+.article_last_updated{
+    float: right;
+    margin: 10px;
+    margin-bottom: 5px;
+}
+
+.article_author{
+    margin: 10px;
+    margin-bottom: 5px;
+    
+}
+
+.article_reduced_content {
+    margin: 10px;
+    font-style: italic;
+}
+
+
+

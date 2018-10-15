@@ -1,0 +1,16 @@
+<div class="content">
+
+    <h2>Edit Author:</h2>
+
+    <form action="/authors/$author.getId()/edit" method="post">
+
+        <div class="form_label">
+            <label for="name">Name: </label>
+        </div>
+        <input type="text" name="name" id="name" required="true" value="$author.getName()">
+
+    <input type="submit" value="Update Author" class="button"/>
+
+    </form>
+
+</div>

@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-weight: lighter;
+    }
+
+/* hide scrollbars */
+::-webkit-scrollbar {
+    display: none;
+    }
+
+.dropdown {
+    position: relative;
+    top: 16px;
+    display: inline-block;
+    float: right;
+    padding-right: 40px;
+
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    right: 0;
+    text-align: center
+
+
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+
+    }
+
+.drop {
+    background-color: #e7e7e7;
+    /* background-color: #F6D8AE; */
+    /* color: white; */
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 16px;
+    font-weight: lighter;
+    font-family: sans-serif;
+
+    }
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 12px 16px;
+
+    }
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+
+    }
+
+header {
+    height: 86px;
+    background: #FFB800;
+
+    }
+
+h1 {
+    line-height: 86px;
+    float: left;
+    font-size: 40px;
+    padding-left: 40px;
+    font-family: sans-serif;
+    font-weight: lighter;
+
+    }
+
+
+h2 {
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+    font-weight: lighter;
+
+
+    }
+
+h3.section_title {
+    text-align: center;
+    padding: 40px;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+h5 {
+    text-align: left;
+    font-weight: lighter;
+    font-size: 15px;
+    font-family: sans-serif;
+
+    }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 30px;
+
+    }
+
+
+p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+
+   }
+
+.link {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    }
+
+.link:hover {
+    color: #A690A4;
+
+    }
+
+table {
+    text-align: center;
+    }
+
+.content {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    }
+
+.article_content {
+   margin-left: 20%;
+   margin-right: 20%;
+   margin-bottom: 5px;
+   }
+
+h5.article_content {
+    margin-left: 0;
+}

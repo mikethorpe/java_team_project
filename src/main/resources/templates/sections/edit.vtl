@@ -1,0 +1,15 @@
+<div class="content">
+
+    <h2>Edit Section:</h2>
+
+    <form action="/sections/$section.getId()/edit" method="post">
+
+        <div class="form_label">
+            <label for="Title">Title:</label>
+        </div>
+        <input type="text" name="title" id="title" required="true" value="$section.getTitle()">
+
+        <input type="submit" value="Update Section" class="button"/>
+
+    </form>
+</div>

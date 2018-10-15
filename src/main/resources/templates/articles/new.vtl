@@ -1,0 +1,54 @@
+<div class="content">
+
+    <h2>Create Article:</h2>
+
+    <form action="/articles" method="post">
+
+        <div class="form_label">
+            <label for="title">Title: </label>
+        </div>
+        <input type="text" name="title" id="title" required="true">
+
+
+        <div class="form_label">
+            <label for="authorId">Author: </label>
+        </div>
+        <select name="authorId" id="authorId" required="true">
+            #foreach($author in $authors)
+            <option value="$author.getId()">$author.getName()</option>
+            #end
+        </select>
+
+
+        <div class="form_label">
+            Select sections to post in:
+        </div>
+        <table class="form_table">
+
+            #foreach($section in $sections)
+                <tr>
+
+                <td><label for="$section.getId()_section">$section.getTitle():</label></td>
+
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section" class="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+            #end
+
+        </table>
+
+            <div class="form_label">
+                <label for="image_link">Link to image:</label>
+            </div>
+            <input type="text" name="image_link" id="image_link">
+
+            <div class="form_label"> <label for="text_content">Text: </label></div>
+            <textarea name="text_content" id="text_content" required="true"></textarea>
+
+            <input type="submit" value="Create Article" class="button"/>
+    </form>
+</div>

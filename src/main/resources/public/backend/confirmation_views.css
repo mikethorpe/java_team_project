@@ -1,0 +1,19 @@
+.confirmation_button{
+    display: inline-block;
+}
+
+.confirmation_button .button{
+    width: 100px;
+    height: 30px;
+    margin: 20px;
+}
+
+.confirmation_text{
+    text-align: center;
+    display: block;
+    margin: 40px 0px 20px 0px;
+}
+
+.confirmation_block{
+    text-align: center;
+}

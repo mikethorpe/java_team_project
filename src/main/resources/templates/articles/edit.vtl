@@ -1,0 +1,65 @@
+<div class="content">
+
+    <h2>Edit Article, Last updated: $article.getLastUpdated():</h2>
+
+    <form action="/articles/$article.getId()/edit" method="post">
+
+        <div class="form_label">
+            <label for="Title">Title: </label>
+        </div>
+        <input type="text" name="title" id="title" required="true" value="$article.getTitle()">
+
+        <select name="authorId" id="authorId" required="true">
+            #foreach($author in $authors)
+                #if($author.getId() == $article.getAuthor().getId() )
+                    <option value="$author.getId()" selected>$author.getName()</option>
+                #else
+                    <option value="$author.getId()">$author.getName()</option>
+                #end
+            #end
+        </select>
+
+        <div class="form_label">
+            Select sections to post in:
+        </div>
+        <table class="form_table">
+
+        #foreach($section in $sections)
+
+            <tr>
+                <td>
+                    <label for="$section.getId()_section">$section.getTitle():</label>
+                </td>
+                <td>
+                    #if($article.getSectionIds().contains($section.getId()))
+                    <label class="switch">
+                        <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section" class="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    #else
+                    <label class="switch">
+                        <input type="checkbox" name="$section.getId()_section" id="$section.getId()_section">
+                        <span class="slider round"></span>
+                    </label>
+                    #end
+                </td>
+            </tr>
+        #end
+
+        </table>
+
+        <div class="form_label">
+        <label for="image_link">Link to article image:</label>
+        </div>
+        <input type="text" name="image_link" id="image_link" value="$article.getImageLink()">
+
+        <div class="form_label">
+        <label for="textContent">Text content: </label>
+        </div>
+        <textarea name="textContent" id="textContent" required="true">$article.getTextContent()</textarea>
+
+        <input type="submit" value="Update Article" class="button"/>
+
+    </form>
+
+</div>

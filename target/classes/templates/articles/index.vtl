@@ -1,0 +1,62 @@
+<div class="content">
+
+    <h2>All Articles:</h2>
+
+    <form action="/articles/new" method="get">
+        <input type="submit" value="New Article" class="button">
+    </form>
+
+    <table>
+
+        <tr>
+            <th>Last updated:</th>
+            <th>Title:</th>
+            <th>Posted in sections:</th>
+            <th>Author:</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        #foreach($article in $articles)
+        <tr>
+
+            <td>$article.getLastUpdated()</td>
+
+            <td>
+                <a href="/articles/$article.getId()">$article.getTitle()</td>
+
+            <td>
+                <ul>
+                    #foreach($section in $article.getSections())
+                        <li>$section.getTitle()</li>
+                    #end
+                </ul>
+            </td>
+
+            <td>
+                $article.getAuthor().getName()
+            </td>
+
+            <td>
+                <form action="/articles/$article.getId()/edit" method="get">
+                    <input type="submit" value="Edit" class="button">
+                </form>
+            </td>
+
+            <td>
+                <form action="/articles/$article.getId()/confirm_delete_article" method="get">
+                    <input type="submit" value="delete" class="button">
+                </form>
+            </td>
+
+        </tr>
+    #end
+
+    </table>
+
+    <form action="/articles/new" method="get">
+        <input type="submit" value="New Article" class="button">
+    </form>
+
+
+</div>

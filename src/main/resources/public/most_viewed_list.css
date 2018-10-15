@@ -1,0 +1,29 @@
+.most_viewed_list{
+    margin: 10px;
+    border-style: solid;
+    border-color: #E8E8E8;
+    border-width: 0.5px;
+}
+
+.most_viewed_list a {
+    text-decoration: none;
+    color: inherit;
+}
+.most_viewed_list a:hover{
+    text-decoration: underline;
+}
+
+.most_viewed_list table {
+    margin: 10px;
+}
+.most_viewed_list td {
+    height: 20px;
+}
+
+.most_viewed_list h3 {
+    text-align: center;
+}
+
+.most_viewed_list tr {
+    height: 30px;
+}

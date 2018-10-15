@@ -1,0 +1,23 @@
+<div class="content">
+
+    <div class="confirmation_block">
+
+    <div class="confirmation_text">Are you sure you want to permanently delete this article?</div>
+
+
+
+        <div class="confirmation_button">
+            <form action="/articles/$article.getId()/delete" method="post">
+                    <input type="submit" value="Yes" class="button">
+            </form>
+        </div>
+
+        <div class="confirmation_button">
+            <form action="/articles" method="get">
+                    <input type="submit" value="No" class="button"/>
+            </form>
+        </div>
+
+    </div>
+
+</div>
