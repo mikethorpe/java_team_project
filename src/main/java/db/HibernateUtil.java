@@ -15,22 +15,18 @@ public class HibernateUtil {
 
 	private static SessionFactory buildSessionFactory() {
 
-		Map<String,String> jdbcUrlSettings = new HashMap<>();
-		String jdbcDbUrl = System.getenv("JDBC_DATABASE_URL");
-
-		if (null != jdbcDbUrl) {
-			jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
-		}
-
-		ServiceRegistry registry = new StandardServiceRegistryBuilder().
-				configure("hibernate.cfg.xml").
-				applySettings(jdbcUrlSettings).
-				build();
-
-
 		try {
+			Configuration config = new Configuration().configure();
 			// Create the SessionFactory from hibernate.cfg.xml
-			return new Configuration().configure().buildSessionFactory(registry);
+
+			String jdbcDbUrl = System.getenv("JDBC_DATABASE_URL");
+			if (null != jdbcDbUrl) {
+				config.setProperty("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
+				config.setProperty("hibernate.connection.username", "JDBC_DATABASE_USERNAME");
+				config.setProperty("hibernate.connection.password", "JDBC_DATABASE_PASSWORD");
+			}
+
+			return config.buildSessionFactory();
 		}
 		catch (Throwable ex) {
 			// Make sure you log the exception, as it might be swallowed
